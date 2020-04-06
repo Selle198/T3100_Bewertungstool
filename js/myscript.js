@@ -210,7 +210,7 @@ function readJsonFile(bereich, indikator, nextBereich){
 	
 	// Verbindung zum Server (Mongoose 6.7) aufbauen
 	var xmlhttp = new XMLHttpRequest();
-	var url ="question_final.json";	
+	var url ="database/question_final.json";	
 	
 	xmlhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200) {
@@ -433,7 +433,7 @@ function arithmeticMean() {
 	var jsonIndicatorArray;
 	// Verbindung zum Server (Mongoose 6.7) aufbauen
 	var xmlhttp = new XMLHttpRequest();
-	var url ="indicator_weighting.json";	
+	var url ="database/indicator_weighting.json";	
 	
 	xmlhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200) {
