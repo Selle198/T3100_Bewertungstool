@@ -329,7 +329,7 @@ function checkIdkCounter() {
 
 // Iteriert durch alle Indikatoren des jeweiligen Bereichs hindurch
 function filterIndikator(singleAreaArray, bereich, indikator) {
-	var question = singleAreaArray.find(e => e.indikator === indikator); // Erstes Element mit aktuellem Indikator suchen	
+	var question = singleAreaArray.find(e => e.indikator === indikator && e.bereich === bereich); // Erstes Element mit aktuellem Indikator suchen	
 	if (!question) {
 		// Keine Fragen im aktuellen Indikator vorhanden
 		question = singleAreaArray[0]; // Erstes Element des Arrays auswählen
