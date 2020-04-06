@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="styles_layout2.css">
+	<title>Bewertungstool zur Nachhaltigkeit</title>
+	<style>
+		#row-2_2 {
+			background-color: white;
+		}
+		.nextSteps:link{
+			background-color: orange;
+			font-size: 30px;
+			max-width: 30%;
+		}
+		.nextSteps:visited{
+			background-color: orange;
+			font-size: 30px;
+		}	
+		.nextSteps:active{
+			background-color: orange;
+			font-size: 30px;
+		}	
+		.nextSteps:hover{
+			background-color: #ffb733;
+			font-size: 30px;
+		}		
+	</style>
+	</head>
+<body>
+	<div class="header">
+		<img id="headerPicture" src="Images/DHBW-logo.png" alt="DHBW Logo"></img>
+		<p id="headerText">Bewerten Sie Ihre Nachhaltigkeit</p>
+	</div>
+	
+	<div class="row-1">
+		<h1 id="startHeading">Welchen Bereich möchten Sie genauer betrachten?</h1>
+	</div>
+	
+	<div id="textField" class="row-2">
+		<div id ="row-2_2">
+			<a class="nextSteps" onclick="getBereichForResults('Ökologie')" href="070_EvaluationSingleArea.html">Ökologie </br> <img class="picture" src="Images/ecology.png" alt="economy icon"></img></a>
+			<a class="nextSteps" onclick="getBereichForResults('Ökonomie')" href="070_EvaluationSingleArea.html">Ökonomie </br> <img class="picture" src="Images/economy.png" alt="economy icon"></img></a>
+			<a class="nextSteps" onclick="getBereichForResults('Soziales')" href="070_EvaluationSingleArea.html">Soziales </br> <img class="picture" src="Images/social.png" alt="social icon"></img></a>
+			<a class="nextSteps" onclick="getBereichForResults('Governance')" href="070_EvaluationSingleArea.html">Governance </br> <img class="picture" src="Images/governance.png" alt="governance icon"></img></a>
+		</div>
+	</div>
+	
+	<div class = "footer">
+		<!-- Zurück Button -->
+		<a href="060_EvaluationOverview.html"><button id="zurueckButton" class="footerButton">Zurück</button></a>
+		<!-- Gesamtwertanzeige Schieberegler -->
+		<a href="030_QuestionArea.html"><button id="weiterButton" class="footerButton">Neue Bewertung</button></a>
+	</div>
+	
+	<!-- Externe Files einbinden -->
+	<script src="myscript.js"></script>
+</body>
+</html>

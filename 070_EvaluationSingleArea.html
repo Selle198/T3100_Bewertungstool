@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="styles_layout2.css">
+	<title>Bewertungstool zur Nachhaltigkeit</title>
+	<style>
+		#textField {
+			padding-left: 10%;
+			padding-right: 10%;
+		}
+		.pText{
+			text-transform: uppercase;
+			background-color: orange;
+			color: white;
+			padding:1%;
+			margin: 2% -13% 2% -13%;
+		}
+		#pTextFirst {
+			margin-top: 0%;
+		}
+		.entwicklung-bereich {
+			display: none;
+		}
+	</style>
+	</head>
+<body onload="displayAreaInHeading()">
+	<div class="header">
+		<img id="headerPicture" src="Images/DHBW-logo.png" alt="DHBW Logo"></img>
+		<p id="headerText">Bewerten Sie Ihre Nachhaltigkeit</p>
+	</div>
+	
+	<div class="row-1">
+		<h1 id="startHeading"></h1>
+	</div>
+	
+	<div id="textField" class="row-2">
+		<p id="pTextFirst" class="pText entwicklung-bereich">Entwicklung des Bereichs:</p>
+		<canvas id="myLineChart" class="entwicklung-bereich"></canvas>
+		<p class="pText">Indikatoren der aktuellen Bewertung:</p>
+		<canvas id="myPolarAreaChart" height="200"></canvas>
+	</div>
+	
+	<div class = "footer">
+		<!-- Zurück Button -->
+		<a href="061_SingleAreaOverview.html"><button id="zurueckButton" class="footerButton">Zurück</button></a>
+		<!-- Gesamtwertanzeige Schieberegler -->
+		<a id="anker"><button id="weiterButton" class="footerButton">Weiter</button></a>
+	</div>
+	
+	<!-- Externe Files einbinden -->
+	<script src="myscript.js"></script>
+	<script src="Chart.bundle.min.js"></script>
+	<script>
+		// Display area in heading
+		function displayAreaInHeading() {
+			document.getElementById('startHeading').innerHTML = 'Ergebnisse ' + localStorage.getItem('AreaForResults').toString();
+		}
+		var bereich = localStorage.getItem('AreaForResults');
+		var indikatoren = getIndikatorenFromBereich(bereich);
+		var color = Chart.helpers.color;
+		
+		// Line Chart
+		var cty = document.getElementById('myLineChart');
+		var testArray = JSON.parse(localStorage.getItem('finalFileList')) || [];
+		var newTest = testArray.sort(function (a,b) { return new Date(a.date) - new Date(b.date)});
+		console.log(newTest);
+		if(newTest.length > 0){
+			Array.prototype.forEach.call( document.getElementsByClassName('entwicklung-bereich'), (x => x.style.display = "block") );
+			var myLineChart = new Chart(cty, {
+				type: 'line',
+				data: {
+					labels: newTest.map(x => x.date).concat(localStorage.getItem('date')),
+					datasets: [{
+						data: newTest.map(x => averageValueBereich(bereich, x.questions)).concat(averageValueBereich(bereich)),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
+						fill: false,
+						borderColor: 'rgb(255, 165, 0)',
+						backgroundColor: 'rgb(255, 165, 0)',
+						lineTension: 0
+					}]
+				},
+				options: {
+					scales: {				
+						yAxes: [{
+							ticks: {
+								beginAtZero: true,
+								suggestedMax: 100
+							}
+						}],
+						xAxes: [{
+							gridLines: {
+								display: false,
+							}
+						}]
+					},
+					legend: {
+						display: false
+					}
+				}
+			});
+		}
+		// Polar Area Chart
+		var ctx = document.getElementById('myPolarAreaChart');
+		var myPolarAreaChart = new Chart(ctx, {
+			type: 'polarArea',
+			data: {
+				labels: indikatoren,
+				datasets: [{
+					data: indikatoren.map(x => averageValueIndikator(bereich, x)),
+					backgroundColor: indikatoren.map(x => randomColor())
+				}],				
+			},
+			options: {
+				scale: {				
+					ticks: {
+						beginAtZero: true
+					}
+				}
+			}
+		});
+		
+		function randomColor() {
+			return 'rgb(' + Math.floor((Math.random() * 255)) + ',' + Math.floor((Math.random() * 255)) + ',' + Math.floor((Math.random() * 255)) + ')';
+			// 'rgb(215,35,12)'
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+	function questionFilterByArea(){	
+		
+		// Iteriert durch alle Einträge des JSON Files durch
+		jsonArray.forEach(function (item){
+			
+			// Wählt alle Fragen aus Bereich XY aus
+			if(item.bereich == bereich){
+				singleAreaArray.push(item);
+			}
+		});		
+		filterIndikator();
+		/* Iteriert durch alle Indikatoren des jeweiligen Bereichs hindurch */
+	function filterIndikator() {
+		var indikatorArray = new Array(); // Enthält alle Frage zu einem bestimmten Indikator
+		var indikatorNotMatchedArray = new Array(); // Enthält alle Fragen die nicht zum aktuellen Indikator gehören		
+			
+		// Wählt alle Fragen aus jeweiligem Bereich mit Indikator XY aus
+		singleAreaArray.forEach(function (item){
+			if(item.indikator == indikator){
+				indikatorArray.push(item);				
+				// TODO: Display Frage
+			}
+			else if(item.indikator != indikator){
+				indikatorNotMatchedArray.push(item);
+			}
+		});					
+				
+		// Fragenanzeige wechseln (pro Indikator)			
+		indikatorArray.forEach(function (item){
+			//changeQuestion();	
+			
+			document.getElementById('weiterButton').addEventListener("click", displayQuestion);				
+			
+			function displayQuestion () {
+				if(inputAvailable() == true){
+					out = item.frage;
+					document.getElementById("questionField").innerHTML = out;
+				}
+				else {
+					alert("Antwort auswählen du Spasst");
+					
+				}
+			}
+		});	
+		 /* for (var x=0; x < indikatorArray.length; x++){
+			document.getElementById('weiterButton').addEventListener("click", displayQuestion);				
+			
+			function displayQuestion () {
+				if(inputAvailable() == true){
+					out = item.frage;
+					document.getElementById("questionField").innerHTML = out;
+				}
+				else {
+					alert("Antwort auswählen du Spasst");
+					setTimeout(1000);
+				}
+			}
+		 } */
+			
+		// Überprüfen ob noch weitere Indikatoren im jeweiligen Bereich vorhanden
+		if(indikatorNotMatchedArray.length != 0){
+			singleAreaArray = indikatorNotMatchedArray;
+			indikator = indikatorNotMatchedArray[0].indikator;
+			console.log("Indikator nach Wechsel: " + indikator);
+			filterIndikator(); // Rekursiver Aufruf
+		}
+		}
+	}

@@ -1,0 +1,58 @@
+[
+{
+	"indikator": "Erneuerbare Energien",
+	"id":"1",
+	"frage":"Welchen Anteil am Gesamtenenergieverbrauch haben erneuerbare Energien?",
+	"antworttyp":"Inkrementell",
+	"bereich":"Ökologie"
+},
+{
+	"indikator": "Erneuerbare Energien",
+	"id":"2",
+	"frage":"Welchen Anteil erneuerbarer Energien erzeugen Sie selbst?",
+	"antworttyp":"Skala",
+	"bereich":"Ökologie"
+},
+{
+	"indikator": "Ökono.-Indikator1",
+	"id":"3",
+	"frage":"Ökonomie Frage1?",
+	"antworttyp":"jaNein",
+	"bereich":"Ökonomie"
+},
+{
+	"indikator": "Ökon.-Indikator2",
+	"id":"4",
+	"frage":"Ökonomie Frage2?",
+	"antworttyp":"Prozent",
+	"bereich":"Ökonomie"
+},
+{
+	"indikator": "Sozialer-Indikator1",
+	"id":"5",
+	"frage":"Soziale Frage1?",
+	"antworttyp":"Hoch",
+	"bereich":"Soziales"
+},
+{
+	"indikator": "Sozialer-Indikator2",
+	"id":"6",
+	"frage":"Soziale Frage2?",
+	"antworttyp":"Skala",
+	"bereich":"Soziales"
+},
+{
+	"indikator": "Govern.-Indikator1",
+	"id":"7",
+	"frage":"Govern. Frage1?",
+	"antworttyp":"jaNein",
+	"bereich":"Governance"
+},
+{
+	"indikator": "Govern.-Indikator2",
+	"id":"8",
+	"frage":"Govern. Frage2?",
+	"antworttyp":"jaNein",
+	"bereich":"Governance"
+}
+]

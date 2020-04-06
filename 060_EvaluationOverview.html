@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="styles_layout2.css">
+	<title>Bewertungstool zur Nachhaltigkeit</title>
+	<style>
+		/* The Modal (background) */
+		.modal {
+		  display: none; /* Hidden by default */
+		  position: fixed; /* Stay in place */
+		  z-index: 1; /* Sit on top */
+		  left: 0;
+		  top: 0;
+		  width: 100%; /* Full width */
+		  height: 100%; /* Full height */
+		  overflow: auto; /* Enable scroll if needed */
+		  background-color: rgb(0,0,0); /* Fallback color */
+		  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+		/* Modal Content/Box */
+		.modal-content {
+		  color: black;
+		  background-color: #fefefe;
+		  margin: 15% auto; /* 15% from the top and centered */
+		  padding: 20px;
+		  border: 1px solid #888;
+		  width: 80%; /* Could be more or less, depending on screen size */
+		}
+
+		/* The Close Button */
+		.close {
+		  color: #aaa;
+		  float: right;
+		  font-size: 36px;
+		  font-weight: bold;
+		}
+		.close:hover,
+		.close:focus {
+		  color: black;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+		#files {
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+		}
+		#labelFile {
+			font-size: 24px;
+			background-color: orange;
+		}
+		#labelFile:hover {
+			background-color: #ffb733;
+		}
+		#outputList {
+			padding-left: 30%;
+			margin-bottom: 0;
+		}
+		.successfullText {
+			display: none;
+			font-size: 20px;
+			color: red;
+		}
+	</style>
+	</head>
+<body onload="getBestBereich()">
+	<div class="header">
+		<img id="headerPicture" src="Images/DHBW-logo.png" alt="DHBW Logo"></img>
+		<p id="headerText">Bewerten Sie Ihre Nachhaltigkeit</p>
+	</div>
+	
+	<div class="row-1">
+		<h1 id="startHeading">Das sind Ihre Ergebnisse</h1>
+	</div>
+	
+	<div id="textField" class="row-2">
+		<div class ="row-2_1">
+			<div class="columns">Stärken Ihres Unternehmens:</div>
+			<div id="overviewStrenghts" class="columns"><b><font color="SeaGreen"> Bereich,</b> z/t von 100%</font></div>
+			<img id="homeImg" src="images\u_did_good.png" alt="Certificate Icon"></img>
+		</div>
+		<div class ="row-2_1">
+			<div class="columns">Verbesserungspotential:</div>
+			<div id="overviewPotential" class="columns"><b><font color="SeaGreen"> Bereich,</b> z/t von 100%</font></div>
+			<img id="homeImg" src="images\u_could_do_better.png" alt="Improvement Icon"></img>
+		</div>
+		<div style="text-transform: uppercase;">Was möchten Sie als nächstes tun?</div>
+		<div id ="row-2_2">
+			<a class="nextSteps" id="myBtn">Frühere Auswertungen einlesen</a>
+			<a class="nextSteps" href="090_EvaluationAcrossArea.html">Gesamtübersicht über die vier Bereiche</a>
+			<a class="nextSteps" href="061_SingleAreaOverview.html">Betrachtung einzelner Bereiche</a>
+			<a class="nextSteps" id="myBtn2" onclick="exportData()">Aktuelle Auswertung speichern</a>
+		</div>
+	</div>
+	
+	<div class = "footer">
+		<!-- Zurück Button -->
+		<a><button id="zurueckButton" class="footerButton" onclick="noTurningBack()">Zurück</button></a>
+		<!-- Gesamtwertanzeige Schieberegler -->
+		<a href="030_QuestionArea.html"><button id="weiterButton" class="footerButton">Neue Bewertung</button></a>
+	</div>
+	
+	<!-- Modal Dialog für das Einbinden früherer Ergebnisse -->
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+	  <!-- Modal content -->
+	  <div class="modal-content">
+		<span class="close">&times;</span>
+		<p>Sie können Ergebnisse von früheren Bewertungen zum Vergleich einpflegen. Ihre Auswertungsübersichten werden anschließend automatisch aktualisiert.</p>
+		<label for="files" class="footerButton" id="labelFile" >Datei auswählen</label>
+			<input type="file" id="files" name="files[]" multiple accept=".json"/> 
+				<output id="list"></output>
+		<div id="text1" class="successfullText"></div>
+		<input id="reset" class="footerButton" type="submit" name="delete[]" value="Liste leeren">
+		<input id="save" class="footerButton" type="submit" name="save[]" value="Einfügen">
+		
+		<p><font style="color: orange; text-transform: uppercase;">Standardeinstellungen wiederherstellen?</font> </br>Die Auswertungen behinhalten anschließend nur die aktuelle/letzte Bewertung.</p>
+		<div id="text2" class="successfullText">Ergebnisse zurückgesetzt</div>
+		<input id="completeReset" class="footerButton" type="submit" name="completeReset[]" value="Zurücksetzen">
+	  </div>
+
+	</div>
+		
+	<!-- Externe Files einbinden -->
+	<script src="myscript.js"></script>
+	<script>
+		// Modal
+		var output = []; // FileList 
+		var modal = document.getElementById("myModal");
+		var btn = document.getElementById("myBtn");
+		var span = document.getElementsByClassName("close")[0];
+		var save = document.getElementById("save");
+		var reset = document.getElementById("reset");
+		var resultArray = [];
+		// Display state
+		var text1 = document.getElementById('text1');
+		var text2 = document.getElementById('text2');
+
+		// Open modal onclick
+		btn.onclick = function() {
+			modal.style.display = "block";
+			document.getElementById('list').innerHTML = '<ul id="outputList">' + output.join('') + '</ul>';
+			document.getElementById('files').addEventListener('change', handleFileSelect, false);
+		}
+		// Close modal
+		span.onclick = function() {
+			modal.style.display = "none";
+			text1.style.display = 'none';
+			text2.style.display = 'none';
+		}
+		// Click outside of the modal --> close modal
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+			text1.style.display = 'none';
+			text2.style.display = 'none';
+			modal.style.display = "none";
+		  }
+		}
+		// Click and save 
+		save.onclick = function() {
+			console.log(resultArray);
+			resetList();
+			localStorage.setItem('finalFileList', '[' + resultArray +']');
+			text1.innerHTML = 'Bewertungen hinzugefügt.';
+			text1.style.display = 'block';
+		}
+		// Reset list
+		reset.onclick = function() {
+			resetList();
+			resultArray = [];
+			text1.innerHTML = 'Liste zurückgesetzt.';
+			text1.style.display = 'block';
+			document.getElementById('files').removeEventListener('change', handleFileSelect, false);
+			document.getElementById('files').addEventListener('change', handleFileSelect, false);
+		}
+		completeReset.onclick = function() {
+			localStorage.removeItem('finalFileList');
+			text2.innerHTML = 'Frühere Bewertungen entfernt.';
+			text2.style.display = 'block';
+		}		
+		
+		
+		//FileHanlder		
+		function handleFileSelect(evt) {
+			console.log('ich bin im fileHandler');
+			var files = evt.target.files; // FileList of File objects
+			console.log(files);
+		
+			for (var i = 0, f; f = files[i]; i++) {
+				output.push('<li style="text-align: left;"><strong>', f.name, '</strong> hinzugefügt am: ',
+						  localStorage.getItem('date'), '</li>');
+				printFile(f);
+			}
+			document.getElementById('list').innerHTML = '<ul id="outputList">' + output.join('') + '</ul>';
+		}
+		
+		// Read files
+		function printFile(file) {
+			
+			var reader = new FileReader();
+			
+			reader.onload = function(evt) {
+				if(checkWeighting(evt) && checkStateTest(evt)) {
+					resultArray.push(evt.target.result);
+				} 
+				else {
+					resetList();
+					alert('Die gewählte Auswertung ' + file.name +' hat eine andere Bereichsgewichtungen oder eine andere Testart und ist deshalb nicht mit den aktuellen Werten vergleichbar.');
+				}				
+			};
+			reader.readAsText(file);	
+		}
+		
+		function checkWeighting(evt) {
+			var weightingArray = [];
+			['Ökologie','Ökonomie','Soziales','Governance'].forEach(x=> weightingArray.push(getWeighting(x)));
+			
+			if((JSON.parse(evt.target.result)).weighting.toString() === Array.from(weightingArray).toString()){
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
+		function checkStateTest(evt) {
+			var testValue = localStorage.getItem('stateTest');
+			
+			if((JSON.parse(evt.target.result)).stateTest.toString() === testValue.toString()){
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
+		// Reset FileList
+		function resetList() {
+			output = [];
+			document.getElementById('list').innerHTML = '<ul id="outputList">' + output.join('') + '</ul>';
+		}
+		
+		// Return Button
+		function noTurningBack() {
+			alert('Entschuldigen Sie, aber Ihre Bewertung wurde bereits abgeschlossen. Sie können Ihre Antworten nachträglich nicht mehr bearbeiten.');
+		}
+	</script>
+</body>
+</html>

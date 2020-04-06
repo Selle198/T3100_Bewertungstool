@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="styles_layout1.css">
+		<script src="myscript.js"></script>
+		<title>Bewertungstool zur Nachhaltigkeit</title>
+	</head>
+<body>
+	<div class="row">
+		<h1 id="startHeading">Willkommen</h1>
+	</div>
+	<div class="row">	
+		<div id="textFeldHome">
+			<p id="testRed">Sie möchten wissen, wie Ihr Unternehmen unter dem Aspekt Nachhaltigkeit abschneidet?</p>
+			<p>Dann sind Sie hier richtig!</p>
+		</div>
+	</div>
+	<div id="buttonGroup" class="row">	
+		<div class="column">
+			<a href="010_Introduction.html">
+				<button class="testartButton" onclick="auswahlTestart('SchnelltestButton')">
+					<p>Schnelltest</p>
+					<img class="homeImg" src="Images\schnelltest_flash.png" alt="Schnelltest-Icon: Blitz"></img>
+					<p> Dauer: ca. 30 min</p>
+				</button>
+			</a>
+		</div>
+		<div class="column">
+			<a href="010_Introduction.html">
+				<button class="testartButton" onclick="auswahlTestart('AusftestButton')">
+					<p>Ausführlichertest</p>
+					<img class="homeImg" src="Images\ausftest_clock.png" alt="Schnelltest-Icon: Blitz"></img>
+					<p> Dauer: ca. 45 min</p>
+				</button>
+			</a>
+		</div>
+	</div>
+</body>
+</html>

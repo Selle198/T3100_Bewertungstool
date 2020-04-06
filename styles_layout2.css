@@ -1,0 +1,378 @@
+*{
+	box-sizing: border-box;
+}
+body {
+	font-size: 36px;
+	background-color: SeaGreen;
+	font-family: "Bahnschrift Condensed";
+	color: white;
+	margin: 0;
+	text-align: center;
+	text-decoration: uppercase;
+}
+p, li, table {
+	font-size: 24px;	
+	font-family: "Bahnschrift Condensed";
+}
+
+
+
+/********Layout settings********/
+.header {
+	display: flex;
+	height: 10%;
+	background-color: white;
+	width: 100%;
+	position: relative;
+	top: 0%;
+	vertical-align: middle;
+	justify-content: center;
+}
+#headerPicture {
+	height:5%;
+	width: 10%;
+	padding: 0.5%;
+}
+#headerText {
+	font-size: 65%;
+	color: orange;
+	margin-left: 50%;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+/* 000_Home.html */
+.row-1{
+	top:10%;
+	position:relative;
+	height: 10%;
+	width: 100%;
+}
+.row-2{
+	top:15%;
+	position:relative;
+	height: 60%;
+	width: 100%;
+}
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.column {
+	background-color:white;
+	float: left;
+	width: 50%;
+	padding: 1%;
+}
+.column:first-child{
+	margin-right: -4%;
+}
+.column:last-child{
+	margin-right: 4%;
+}
+@media screen and (max-width:600px){
+	.column {
+		width: 100%;
+	}
+}
+.footer {
+	height: 10%;
+	background-color: white;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right:0;
+	margin-right: 20%;
+}
+
+.footerButton{
+	width: 20%;
+	padding: 1%;
+	margin: 1%;
+	text-transform: uppercase;
+	background-color: SeaGreen;
+	color: white;
+	border: none;
+	box-shadow: 5px 5px 2.5px grey;
+}
+.footerButton:hover{
+	background-color: green;
+}
+#weiterButton{
+	margin-left: 55%;
+}
+#startHeading {
+	vertical-align: middle;
+	font-family: "Bahnschrift Condensed";
+	font-size: 48px;
+	text-transform: uppercase;
+	margin: 0;
+	padding:1%;
+}
+#textField{
+	background-color: white;
+	color: orange;
+	text-align: center;
+	vertical-align: middle;
+	width:80%;
+	margin: 0 10% 10% 10%;
+	padding:2%;
+}
+
+
+/******* Introduction ********/
+
+.arbeitsschritte {
+	background-color: lightGray;
+	color: black;
+	text-transform: uppercase;
+	text-align: center;
+	float: left;
+	width: 30%;
+	box-shadow: 10px 10px 5px grey;
+	border: none;
+	margin: 1%;
+}
+
+#row-1_1 {
+	display: flex;
+	justify-content: center;	
+}
+.picture {
+	padding: 0;
+	width: 35%;
+}
+#symboltabelle{
+	height: 10%;
+}
+
+/*********** Weighting ************/
+#gesamtwert{
+	color: black; 
+	font-size: 36px;
+	margin: 2% 6% 0 0;
+	float: right;
+	padding: 0.5%;
+	border: 3px solid black;
+	border-color: orange;
+}
+.column-2 {
+	height: 100%;
+	margin: 0;
+	padding: 1%;
+	text-align: center;
+	float: left;
+}
+#column-2_1 {
+	width: 35%;
+}
+#column-2_2 {
+	width: 45%;
+}
+#column-2_3 {
+	width: 20%;
+}
+
+/*Slider*/
+.slider {
+	-webkit-appearance: none; /* Standard CSS Style überschreiben */
+	appearance: none;
+	width: 100%;
+	height: 25px;
+	background: lightGray;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;	
+}
+.slider:hover {
+	opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 7%;
+	height: 25px;
+	background: SeaGreen;
+	cursor: pointer;
+}
+.slider::-moz-range-thumb {
+	width: 7%;
+	height: 25px;
+	background: SeaGreen;
+	cursor: pointer;
+}
+.outputValue{
+	font-size: 36px;
+}
+/*Collapsible*/
+.collapsible{
+	background-color: orange;
+	color: white;
+	font-size: 24px;
+	width: 100%;
+	height: 50px;
+	text-transform: uppercase;
+	box-shadow: 10px 10px 5px grey;
+	border: none;
+	margin-top: 2%;
+	cursor: pointer;
+}
+.active, .collapsible:hover {
+	background-color: #ffb733;
+}
+.contentCollapsible {
+	padding: 0 2%;
+	display: none;
+	overflow: hidden;
+	background-color: lightGrey;
+	color: black;
+}
+
+/***** QuestionArea *****/
+/* verstecken der Standard Radio Buttons*/
+input[type="radio"] {
+	position: absolute;
+	display: block;
+	opacity: 0; /* transparent machen */
+	z-index: 1;
+}
+td {
+	display: block;
+	/* background-color: blue; */	
+}
+td span {
+	background-color: white;
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	border: 5px solid SeaGreen;
+	transition: all .2s linear;
+}
+input[type="radio"] + span{
+	border-radius: 50%;
+}
+/* td:hover span {
+	border: solid #bbb;	
+} */
+input[type="radio"]:checked + span {
+	border: 5px solid orange;
+}
+
+/*Progress Arrows*/
+#progressArrows {
+	display: flex;
+	justify-content: center;
+	font-size:32px;
+}
+.pointer {
+	color: black;
+	text-transform: uppercase;
+	width: 230px;
+	height: 80px;
+	position: relative;
+	background: white;
+	margin: 2% 3% 0% 0%;
+	text-align: center;
+	padding: 1.5% 5%;
+} 
+.pointer:after { 
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-left: 40px solid SeaGreen;
+	border-top: 40px solid transparent;
+	border-bottom: 40px solid transparent;	
+}
+.pointer:before { 
+	content: "";
+	position: absolute;
+	right: -40px;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-left: 40px solid orange;
+	border-top: 40px solid transparent;
+	border-bottom: 40px solid transparent;
+}
+#pointer1{
+	margin-left: 0%;
+	background-color: orange;
+}
+#pointer4 {
+	padding-left: 3.5%;
+}
+
+/****** Evaluation Overview *******/
+#homeImg {
+	width: 100px;
+	height: 100px;
+	margin: -0.5% 7% 0% 0%;
+	padding: 1%;
+}
+.row-2_1 {
+	display: flex;
+	color: black;
+	font-size: 32px;
+	background-color: lightGray;
+	margin-bottom: 2%;
+	padding: 1%;
+	box-shadow: 5px 5px 5px gray;
+	text-transform: uppercase;
+}
+.columns:first-child {
+	flex: 40%;
+	text-align: left;
+	margin-left: 0;
+	padding-left: 2.5%;
+}
+.columns {
+	flex: 30%;
+	text-align: left;
+	margin: 2.5% 0 1% 0%;
+	width:100%;
+}
+#row-2_2 {
+	display: flex;
+	justify-content: center;
+	font-size: 20px;
+	color: white;
+}
+.nextSteps:link, #myBtn, #myBtn2 {
+	flex: 20%;
+	min-height: 100px;
+	background-color: orange;
+	color: white;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 24px;
+	margin: 2%;
+	padding: 1%;
+	border: none;
+	box-shadow: 5px 5px 5px gray;
+	max-width: 20%;
+	cursor: pointer;
+}
+.nextSteps:visited, #myBtn:visited, #myBtn2:visited { 
+	color: white;
+	border:thin outset white;  
+	text-decoration:none;
+	cursor: pointer;
+}
+.nextSteps:active, #myBtn:active, #myBtn2:active {
+	color: white;
+	border:thin inset white;  
+	text-decoration:none;
+	cursor: pointer;
+}
+.nextSteps:hover, #myBtn:hover, #myBtn2:hover {
+	color: white;
+	background-color: #ffb733;
+	cursor: pointer;
+}
+
+

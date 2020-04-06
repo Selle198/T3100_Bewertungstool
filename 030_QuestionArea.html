@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="styles_layout2.css">
+		<title>Bewertungstool zur Nachhaltigkeit</title>
+		<style>
+			#textField{
+				background-color: white;
+				color: orange;
+				text-align: center;
+				vertical-align: middle;
+				width:80%;
+				margin: 0 10% 0% 10%;
+				padding:2%;
+			}
+			#questionField {
+				z-index: +1;
+				font-size: 30px;
+				margin-top: 1%;
+			}
+			table {
+				table-layout: fixed;
+				width: 100%;
+				display: none;
+				text-align: center;
+			}
+			th {
+				background-color: lightGrey;
+				color: black;
+				padding: 0.5%;
+			}
+			#antwort {
+				width: 100%;
+				display: flex;
+				height: 50px;
+			}
+			#skala #jaNein #prozent #hoch #inkrementell {
+				display: inline-table;
+			}
+			td {
+				max-width: 100%;
+				margin: 10% 43.5% 0 40%;
+			}			
+			table#jaNein td {
+				max-width: 100%;
+				margin: 5% 47.5% 0 46%;
+			}
+			.picture {
+				position: absolute;
+				top: 0%;
+				right: 48%;
+				display: none;
+				width: 5%;
+			}
+			
+			/* The Modal (background) */
+			.modal {
+			  display: none; /* Hidden by default */
+			  position: fixed; /* Stay in place */
+			  z-index: 1; /* Sit on top */
+			  left: 0;
+			  top: 0;
+			  width: 100%; /* Full width */
+			  height: 100%; /* Full height */
+			  overflow: auto; /* Enable scroll if needed */
+			  background-color: rgb(0,0,0); /* Fallback color */
+			  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+			}
+
+			/* Modal Content/Box */
+			.modal-content {
+				color: black;
+				background-color: #fefefe;
+				margin: 10% auto; /* 15% from the top and centered */
+				padding: 20px;
+				border: 1px solid #888;
+				width: 85%; /* Could be more or less, depending on screen size */
+			}
+
+			/* The Close Button */
+			.close {
+			  color: #aaa;
+			  float: right;
+			  font-size: 28px;
+			  font-weight: bold;
+			}
+
+			.close:hover,
+			.close:focus {
+			  color: black;
+			  text-decoration: none;
+			  cursor: pointer;
+			}	
+			#myBtn {
+				flex: none;
+			}
+		</style>
+	</head>
+<body onload="loadModal()">
+	
+	<div class="header">
+		<img id="headerPicture" src="Images/DHBW-logo.png" alt="DHBW Logo"></img>
+		<p id="headerText">Bewerten Sie Ihre Nachhaltigkeit</p>
+	</div>
+	
+		
+	<div class="row-1">
+		<h2 id="startHeading">Erneuerbare Energien </h2>
+	</div>
+	
+	<div id="textField" class="row-2">
+		<p id="questionField">Frage wird geladen...</p>		
+		<table id="skala" class="answerField">
+			<tr>
+				<th colspan="3">Bereits realisiert</th>
+				<th colspan="2">Nur geplant</th>
+				<th>Fehlt</th>
+				<th rowspan="2">Weiß ich nicht</th>
+			</tr>
+			<tr>
+				<th>immer, ja</th>
+				<th>fast, oft</th>
+				<th>zum Teil, selten</th>
+				<th>auch langfristig</th>
+				<th>nur kurzfristig</th>
+				<th>nein, nie</th>
+			</tr>
+			<tr id="antwort">
+				<td>
+					<input type="radio" name="radio" value="5">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="4">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="3">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="2">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="1">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="0">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="f">
+					<span class="checkmark"></span>
+				</td>
+			</tr>
+		</table>
+		<table id="prozent" class="answerField">
+			<tr>
+				<th>100%</th>
+				<th>75%</th>
+				<th>50%</th>
+				<th>25%</th>
+				<th>15%</th>
+				<th>0%</th>	
+				<th>Weiß ich nicht</th>			
+			</tr>
+			<tr id="antwort">
+				<td>
+					<label class="test">
+						<input type="radio" name="radio" value="5">
+						<span class="checkmark"></span>
+					</label>
+				</td>
+				<td>
+					<label class="test">
+						<input type="radio" name="radio" value="4">
+						<span class="checkmark"></span>
+					</label>
+				</td>
+				<td>
+					<label class="test">
+						<input type="radio" name="radio" value="3">
+						<span class="checkmark"></span>
+					</label>
+				</td>
+				<td>
+					<label class="test">
+						<input type="radio" name="radio" value="2">
+						<span class="checkmark"></span>
+					</label>
+				</td>
+				<td>
+					<label class="test">
+						<input type="radio" name="radio" value="1">
+						<span class="checkmark"></span>
+					</label>
+				</td>
+				<td>
+					<label class="test">
+						<input type="radio" name="radio" value="0">
+						<span class="checkmark"></span>
+					</label>
+				</td>
+				<td>
+					<label class="test">
+						<input type="radio" name="radio" value="f">
+						<span class="checkmark"></span>
+					</label>
+				</td>
+			</tr>
+			
+		</table>
+		<table id="jaNein" class="answerField">
+			<tr>
+				<th>Ja</th>
+				<th>Nein</th>	
+				<th>Weiß ich nicht</th>			
+			</tr>
+			<tr id ="antwort">
+				<td>
+					<input type="radio" name="radio" value="5">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="0">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="f">
+					<span class="checkmark"></span>
+				</td>
+			</tr>
+		</table>
+		<table id= "hoch" class = "answerField">
+			<tr>
+				<th>Sehr hoch</th>
+				<th>Hoch</th>	
+				<th>Mittelmäßig</th>
+				<th>Gering</th>
+				<th>Sehr Gering</th>
+				<th>Irrelevant</th>
+				<th>Weiß ich nicht</th>
+			</tr>
+			<tr id = "antwort">
+				<td>
+					<input type="radio" name="radio" value="5">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="4">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="3">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="2">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="1">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="0">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="f">
+					<span class="checkmark"></span>
+				</td>
+			</tr>
+		</table>
+		<table id= "inkrementell" class = "answerField">
+			<tr>
+				<th>Steigt stark</th>
+				<th>Steigt</th>	
+				<th>Bleibt konstant</th>
+				<th>Sinkt</th>
+				<th>Sinkt stark</th>
+				<th>Irrelevant</th>
+				<th>Weiß ich nicht</th>
+			</tr>
+			<tr id = "antwort">
+				<td>
+					<input type="radio" name="radio" value="5">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="4">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="3">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="2">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="1">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="0">
+					<span class="checkmark"></span>
+				</td>
+				<td>
+					<input type="radio" name="radio" value="f">
+					<span class="checkmark"></span>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id ="progressArrows">
+
+		<div id="pointer1" class="pointer">Ökologie</div>
+		<div id="pointer2" class="pointer">Ökonomie</div>
+		<div id="pointer3" class="pointer">Soziales</div>
+		<div id="pointer4" class="pointer">Governance</div>
+	</div>
+	
+	<div id="myModal" class="modal">
+	  <!-- Modal content -->
+	  <div class="modal-content">
+		<span class="close">&times;</span>
+		<h5 style="text-transform: uppercase; color: orange; margin: 1% 0% 0% 0%;">Bevor Sie beginnen...</h5>
+		<p id="description">Sie haben die Option <b>"Schnelltest"</b> gewählt. </br> Damit können Sie die Antwortmöglichkeit <b>"Ich weiß nicht"</b> maximal <b>XY-mal</b> auswählen.</p>
+		<h6 style="text-transform: uppercase; color: orange; margin: 1% 0% 0% 0%;">Hinweis: </h6>
+		<p style="margin-top: 0;">Um frühere Auswertungen mit aktuellen zu vergleichen, müssen diese die <b>selbe Testart (Schnelltest / Ausführlicher Test)</b> und die <b>selbe Gewichtung</b> besitzen.</p>
+		<h6 style="text-transform: uppercase; color: orange; margin: 1% 0% 0% 0%;">Keine neue Bewertung erstellen?</h6>
+		<p style="margin-top: 0;">Ihre letze Bewertung wird anschließend in der Auswertungsübersicht angezeigt.</p>
+		<a id="anker_lastResult"><button class="footerButton" onclick="minOneResultAvailable()" >Letzte Auswertung</button></a>
+	  </div>
+
+	</div>
+	
+	
+	
+	<div class = "footer">
+		<!-- Zurück Button -->
+		<a><button id="zurueckButton" class="footerButton" onclick="reverseClick()">Zurück</button></a>
+		<img id ="areaImg1" class="picture" src="Images/ecology.png" alt="economy icon"/>
+		<img id ="areaImg2" class="picture" src="Images/economy.png" alt="economy icon"/>
+		<img id ="areaImg3" class="picture" src="Images/social.png" alt="social icon"/>
+		<img id ="areaImg4" class="picture" src="Images/governance.png" alt="governance icon"/>
+		<a id="anker"><button id="weiterButton" class="footerButton">Weiter</button></a>
+	</div>	
+	
+	<!-- Externe Files einbinden -->
+	<script src="myscript.js"></script>
+	<script>
+		// Get the modal
+		var modal = document.getElementById("myModal");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks on the button, open the modal
+		function loadModal() {
+		  modal.style.display = "block";
+		  if (parseInt(localStorage.getItem('stateTest'))=== 12) {
+			var newString = document.getElementById('description').innerHTML.replace('XY', '4');
+			document.getElementById('description').innerHTML = newString;
+			newString = document.getElementById('description').innerHTML.replace('Schnelltest', 'Ausführlicher Test');
+			document.getElementById('description').innerHTML = newString;			
+			} else {
+				var newString = document.getElementById('description').innerHTML.replace('XY', '2');
+				document.getElementById('description').innerHTML = newString;				
+			}
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		  modal.style.display = "none";
+		  loadQuestion('Ökologie', 'Erneuerbare Energien')
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+			modal.style.display = "none";
+			loadQuestion('Ökologie', 'Erneuerbare Energien')
+		  }
+		}
+		
+		function minOneResultAvailable() {
+			if(localStorage.getItem('date')){
+				anker_lastResult.href="060_EvaluationOverview.html";
+			} else {
+				alert('Sie haben noch keine Bewertung durchgefüht, die Sie betrachten könnten.');
+			}
+		}
+	</script>
+</body>
+</html>

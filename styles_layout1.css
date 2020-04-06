@@ -1,0 +1,94 @@
+*{
+	box-sizing: border-box;
+}
+body {
+	font-size: 36px;
+	background-color: SeaGreen;
+	font-family: "Bahnschrift Condensed";
+	color: white;
+	margin: 0;
+	text-align: center;
+}
+p {
+	font-size: 24px;	
+	font-family: "Bahnschrift Condensed";
+}
+
+/* hinweissymbole {
+	
+} */
+table {
+	border-collapse: collapse;
+}
+
+tr, td, th {
+	border: 1px solid black;
+	padding: 8px;
+	text-align: center;
+}
+
+.answerField {
+	display: hidden;
+}
+.row{
+	max-height: 33.33%;
+	margin: 2% 0 2% 0;
+}
+/* 000_Home.html */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.column {
+	background-color:white;
+	float: left;
+	width: 50%;
+	padding: 1%;
+}
+.column:first-child{
+	margin-right: -4%;
+}
+.column:last-child{
+	margin-right: 4%;
+}
+@media screen and (max-width:600px){
+	.column {
+		width: 100%;
+	}
+}
+
+#startHeading {
+	background-color: white;
+	color: orange;
+	font-family: "Bahnschrift Condensed";
+	font-size: 200px;
+	text-transform: uppercase;
+	margin: 0;
+	padding:0;
+}
+#textFeldHome{
+	margin: 0;
+}
+#buttonGroup{
+	background-color: white;
+	font-size: 24px;
+}
+.testartButton{
+	background-color: orange;
+	color: white;
+	font-size: 24px;
+	width: 60%;
+	height: 250px;
+	text-transform: uppercase;
+	box-shadow: 10px 10px 5px grey;
+	border: none;
+	margin: 2%;
+}
+.testartButton:hover{
+	background-color: #ffb733;
+}
+.homeImg {
+	width: 100px;
+	height: 100px;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="styles_layout2.css">
+		<title>Bewertungstool zur Nachhaltigkeit</title>
+	<style>
+		h6, p {
+			margin: 1.5% 0;
+			text-align: left;
+		}
+		h6 {
+			color: SeaGreen;
+			text-transform: uppercase;
+		}
+		.picture {
+			width: 2.5%;
+			float: right;
+			margin-right: 2%;
+		}
+		.picture2 {
+			margin-top: -1%;
+			width: 10%;
+		}
+	</style>
+	</head>
+	
+<body onload="getLastWeighting()">
+	<div class="header">
+		<img id="headerPicture" src="Images/DHBW-logo.png" alt="DHBW Logo"></img>
+		<p id="headerText">Bewerten Sie Ihre Nachhaltigkeit</p>
+	</div>
+	
+	<div class="row-1">
+		<h1 id="startHeading">Worauf legen Sie mehr wert?</h1>
+	</div>
+	
+	
+	<div id="textField" class="row-2">
+			
+		<!-- Schieberegler -->
+		<div id="column-2_1" class="column-2">
+			<label for="volume1">Ökologie:</label> </br>
+			<label for="volume2">Ökonomie:</label> </br>
+			<label for="volume3">Soziologie:</label> </br>
+			<label for="volume4">Governance:</label> 
+		</div>
+		<div id="column-2_2" class="column-2">
+			<input type="range" id="volume1" class="slider" value="25" oninput="anzeige('volume1','output1','volume2','volume3','volume4')">
+			<input type="range" id="volume2" class="slider" value="25" oninput="anzeige('volume2','output2','volume1','volume3','volume4')">
+			<input type="range" id="volume3" class="slider" value="25" oninput="anzeige('volume3','output3','volume1','volume2','volume4')">
+			<input type="range" id="volume4" class="slider" value="25" oninput="anzeige('volume4','output4','volume1','volume2','volume3')">
+		</div>
+		<div id="column-2_3" class="column-2">
+			<div class="outputValue"><output id="output1" for="volume1">25</output>%</div>
+			<div class="outputValue"><output id="output2" for="volume2">25</output>%</div>
+			<div class="outputValue"><output id="output3" for="volume3">25</output>%</div>
+			<div class="outputValue"><output id="output4" for="volume4">25</output>%</div>
+		</div>
+		<p id="gesamtwert">100%</p>
+		</br>
+		
+		<!-- Collapsible, DropDown Menü -->
+		<button type="button" class="collapsible">Was bedeuten die einzelnen Bereiche? <img class="picture" src="images\triangle.png" alt="triangle collapsible"/></button>
+		<div class="contentCollapsible">
+			<p>Im Rahmen des sogenannten "Drei-Säulen-Modells" der Nachhaltigkeit werden die Dimensionen Ökologie, Ökonomie und Soziales definiert. Zusätzlich wird oftmals von der sogenannten Governance gesprochen. Welche Charakterisierungen die einzelnen Bereiche beinhalten, soll im folgenden kurz erläutert werden.</p>
+			<h6>Ökologie:</h6>
+				<p>Ziele von ökologischen Unternehmen sind die Minimierung von Emissionen, die Verbesserung von Ressourcen- und Materialproduktivität sowie der Steigerung von Recycling- und Wiederverwendungsquoten, um die Umweltbilanz des Unternehmens zu steigern.</p>
+				<img id ="areaImg1" class="picture2" src="Images/ecology.png" alt="economy icon"/>
+			<h6>Ökonomie:</h6>
+				<p>Wirtschaftlichkeit kann als Kern aller Unternehmen betrachtet werden. Die Hauptziele der Unternehmen sind eine langfristige Existenzssicherung und die Maximierung des Gewinns. Bedingt durch die zunehmende Globalisierung steigt der Wettbewerbsdruck und Unternehmen müssen sich stärker Differenzieren um erfolgreich zu sein. Mögliche Erfolgsfaktoren sind dabei Innovationen sowie die Steigerung der Ressourcenproduktivität.</p>
+				<img id ="areaImg2" class="picture2" src="Images/economy.png" alt="economy icon"/>
+			<h6>Soziales:</h6>
+				<p>Das soziale Umfeld der Kunden, Mitarbeiter und Anteilseigener kann durch Unternehmen in hohem Maße beeinflusst werden. Unternehmen sollten aktuelle Werte und Normen berücksichtigen, sowie sozial gerecht Handeln um Nachhaltig zu praktizieren.</p>
+				<img id ="areaImg3" class="picture2" src="Images/social.png" alt="social icon"/>
+			<h6>Governance:</h6> 
+				<p>Auch die Unternehmensführung spielt eine maßgebliche Rolle bei der Gestaltung eines nachhaltigen Unternehmens. Dabei sollten gezielt Maßnahmen zur Verhinderung von Korruption vorgenommen werden. Zusätzlich sollte das Nachhaltigkeitsmanagement durch Vorstand und Aufsichtsrat gefördert werden, sowie die Gewährleistung von Datenschutz und Arbeitnehmerrecht garantiert sein.</p>
+				<img id ="areaImg4" class="picture2" src="Images/governance.png" alt="governance icon"/>
+		</div>
+	</div>
+	
+	<div class = "footer">
+		<!-- Zurück Button -->
+		<a href="010_Introduction.html"><button id="zurueckButton" class="footerButton">Zurück</button></a>
+		<!-- Gesamtwertanzeige Schieberegler -->
+		<a id="anker"><button id="weiterButton" class="footerButton" onclick="checkGesamtwert(sumOf('volume1','volume2','volume3','volume4'))">Bestätigen</button></a>
+	</div>	
+	
+	<!-- Popup Window -->
+	<dialog id="unacceptedValue"></dialog>
+	
+	<script>
+		var coll = document.getElementsByClassName('collapsible');
+		var i;
+		
+		for( i=0; i< coll.length; i++) {
+			coll[i].addEventListener("click", function() {
+				this.classList.toggle('active');
+				var content = this.nextElementSibling;
+				if(content.style.display === 'block') {
+					content.style.display = 'none';
+				} else {
+					content.style.display = 'block';
+				}
+			});
+		}
+	</script>
+	
+	<!-- Externe Files einbinden -->
+	<script src="myscript.js"></script>
+</body>
+</html>

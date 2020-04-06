@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="styles_layout2.css">
+	<title>Bewertungstool zur Nachhaltigkeit</title>
+	<style>
+		#textField {
+			padding-left: 10%;
+			padding-right: 10%;
+		}
+		.entwicklung-bereich {
+			display: none;
+		}
+		.columns {
+			text-align: center;
+		}
+		.columns:first-child {
+			flex: 60%;
+		}
+	</style>
+</head>
+<body onload="averageValue()">
+	<div class="header">
+		<img id="headerPicture" src="Images/DHBW-logo.png" alt="DHBW Logo"></img>
+		<p id="headerText">Bewerten Sie Ihre Nachhaltigkeit</p>
+	</div>
+	
+	<div class="row-1">
+		<h1 id="startHeading">Auswertung über alle Bereiche</h1>
+	</div>
+	
+	<div id="textField" class="row-2">
+		<div class ="row-2_1">
+			<div class="columns">Gesamte erreichte Prozentzahl:</div>
+			<div id="averageValueField" class="columns">Zahl</div>
+		</div>
+		<canvas id="myBarChart"></canvas>
+		<canvas id="myLineChart"></canvas>
+	</div>
+	
+	<div class = "footer">
+		<!-- Zurück Button -->
+		<a href="060_EvaluationOverview.html"><button id="zurueckButton" class="footerButton">Zurück</button></a>
+		<!-- Gesamtwertanzeige Schieberegler -->
+		<a href="060_EvaluationOverview.html"><button id="weiterButton" class="footerButton">Weiter</button></a>
+	</div>
+	
+	<!-- Externe Files einbinden -->
+	<script src="myscript.js"></script>
+	<script src="Chart.bundle.min.js"></script>
+	<script>
+		var ctx = document.getElementById('myBarChart');
+		var bereiche = ['Ökologie','Ökonomie','Soziales','Governance'];
+		var color = Chart.helpers.color;
+		
+		// Bar Chart
+		var myBarChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: bereiche,
+				datasets: [{
+					label: localStorage.getItem('date'),
+					barPercentage: 1.0,
+					categoryPercentage: 0.5,
+					data: bereiche.map(x => averageValueBereich(x)),
+					backgroundColor: 'rgba(255, 165, 0)',
+				}]
+			},
+			options: {
+				scales: {				
+					yAxes: [{
+						ticks: {
+							beginAtZero: true,
+							suggestedMax: 100
+						}
+					}],
+					xAxes: [{
+						gridLines: {
+							display: false,
+						}
+					}]
+				},
+				legend: {
+					display: false,
+				}
+			}
+		});
+		
+		// Line Chart
+		var cty = document.getElementById('myLineChart');
+		var testArray = JSON.parse(localStorage.getItem('finalFileList')) || [];
+		var newTest = testArray.sort(function (a,b) { return new Date(a.date) - new Date(b.date)});
+		if(newTest.length > 0){
+			document.getElementById('myLineChart').style.display = 'block';
+			document.getElementById('myBarChart').style.display = 'none';
+			var myLineChart = new Chart(cty, {
+				type: 'line',
+				//lineTension: 0,
+				data: {
+					labels: newTest.map(x => x.date).concat(localStorage.getItem('date')),
+					datasets: 
+					[{
+						data: newTest.map(x => averageValueBereich('Ökologie', x.questions)).concat(averageValueBereich('Ökologie')),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
+						fill: false,
+						label: 'Ökologie',
+						borderColor: 'rgb(46, 139, 87)',
+						backgroundColor: 'rgb(46, 139, 87)',
+						lineTension: 0
+					},
+					{
+						data: newTest.map(x => averageValueBereich('Ökonomie', x.questions)).concat(averageValueBereich('Ökonomie')),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
+						fill: false,
+						label: 'Ökonomie',
+						borderColor: 'rgb(255, 165, 0)',
+						backgroundColor: 'rgb(255, 165, 0)',
+						lineTension: 0
+					},
+					{
+						data: newTest.map(x => averageValueBereich('Soziales', x.questions)).concat(averageValueBereich('Soziales')),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
+						fill: false,
+						label: 'Soziales',
+						borderColor: 'rgb(255, 215, 0)',
+						backgroundColor: 'rgb(255, 215, 0)',
+						lineTension: 0
+					},
+					{
+						data: newTest.map(x => averageValueBereich('Governance', x.questions)).concat(averageValueBereich('Governance')),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
+						fill: false,
+						label: 'Governance',
+						borderColor: 'rgb(100, 149, 237)',
+						backgroundColor: 'rgb(100, 149, 237)',
+						lineTension: 0
+					}], 
+				},
+				options: {
+					scales: {				
+						yAxes: [{
+							ticks: {
+								beginAtZero: true,
+								suggestedMax: 100
+							}
+						}],
+						xAxes: [{
+							gridLines: {
+								display: false,
+							}
+						}]
+					},
+					legend: {
+						display: true
+					}
+				}
+			});
+		} else {
+			document.getElementById('myBarChart').style.display = 'block';
+		}
+		
+		function randomColor() {
+			return 'rgb(' + Math.floor((Math.random() * 255)) + ',' + Math.floor((Math.random() * 255)) + ',' + Math.floor((Math.random() * 255)) + ')';
+			// 'rgb(215,35,12)'
+		}
+	</script>
+</body>
+</html>
