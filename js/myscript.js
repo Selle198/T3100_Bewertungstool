@@ -205,13 +205,21 @@ function changeAreaIcons(imgId){
 	});
 }
 
-// JSON File vom Webserver (Mongoose 6.7) anfordern
+// Get json files from server
 function readJsonFile(bereich, indikator, nextBereich){
 	
-	// Verbindung zum Server (Mongoose 6.7) aufbauen
 	var xmlhttp = new XMLHttpRequest();
-	var url ="database/question_final.json";	
+	var url = "";
 	
+	// Choose question json file
+	if(JSON.parse(localStorage.getItem('stateTest')) === 6) {
+		// Quicktest
+		url ="database/questions_quickTest.json";
+	} else {
+		// Detailed test
+		url ="database/questions_detailedTest.json";
+	}	
+	// Connect to server
 	xmlhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200) {
 			jsonArray = JSON.parse(this.responseText); // in JS Objekte umwandeln
@@ -239,7 +247,6 @@ function questionFilterByArea(jsonArray, bereich, indikator, nextBereich){
 		}
 	});	
 }
-
 
 function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 	
@@ -431,10 +438,19 @@ function reverseClick() {
 // TODO: arithmetic mean
 function arithmeticMean() {
 	var jsonIndicatorArray;
-	// Verbindung zum Server (Mongoose 6.7) aufbauen
 	var xmlhttp = new XMLHttpRequest();
-	var url ="database/indicator_weighting.json";	
+	var url = "";
 	
+	// Choose weighting json file
+	if(JSON.parse(localStorage.getItem('stateTest')) === 6) {
+		// Quicktest
+		url ="database/indicatorWeighting_quickTest.json";
+	} else {
+		// Detailed test
+		url ="database/indicatorWeighting_detailedTest.json";
+	}	
+	
+	// Verbindung zum Server (Mongoose 6.7) aufbauen
 	xmlhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200) {
 			jsonIndicatorArray = JSON.parse(this.responseText); // in JS Objekte umwandeln
