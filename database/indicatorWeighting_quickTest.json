@@ -1,0 +1,105 @@
+[
+{
+	"indikator": "Erneuerbare Energien",	"gewichtung":19,
+	"bereich":"Ökologie"
+},
+{
+	"indikator": "Zertifizierung und Managementsysteme",	"gewichtung":17,
+	"gewichtungSchnelltest": "5",
+	"bereich":"Ökologie"
+},
+{
+	"indikator": "Vorhandensein/Umsetzung von Konzepten der Nachhaltigkeitsverbesserung",	"gewichtung":17,
+	"bereich":"Ökologie"
+},
+{
+	"indikator": "Anteil (Vor-)Lieferanten mit zertifiziertem Umweltmanagement",	"gewichtung":16,
+	"bereich":"Ökologie"
+},
+{
+	"indikator": "Effizienz der Eingesetzten Materialmenge",	"gewichtung":16,
+	"bereich":"Ökologie"
+},
+{
+	"indikator": "Umweltorientiertes Logistikkonzept für die Beschaffung",	"gewichtung":15,
+	"bereich":"Ökologie"
+},
+{
+	"indikator": "Beschäftigungsentwicklung",	"gewichtung":18,
+	"bereich":"Ökonomie"
+},
+{
+	"indikator": "Miteinbezug Nachhaltigkeit in Managemententscheidungen",	"gewichtung":18,
+	"bereich":"Ökonomie"
+},
+{
+	"indikator": "Zertifizierung und Managementsysteme",
+	"gewichtung":17,
+	"bereich":"Ökonomie"
+},
+{
+	"indikator": "Arbeitsproduktivität",	"gewichtung":16,
+	"bereich":"Ökonomie"
+},
+{
+	"indikator": "Anteil der Importe von Materialien",	"gewichtung":16,
+	"bereich":"Ökonomie"
+},
+{
+	"indikator": "Kommunikation Nachhaltigkeit interne/externe Stakeholder",	"gewichtung":15,
+	"bereich":"Ökonomie"
+},
+{
+	"indikator": "Arbeitssicherheit",	"gewichtung":18,
+	"bereich":"Soziales"
+},
+{
+	"indikator": "Vorhandensein/Zugänglichkeit Schulungsplan Mitarbeiter",	"gewichtung":18,
+	"bereich":"Soziales"
+},
+{
+	"indikator": "Zertifizierung und Managementsysteme",
+	"gewichtung":17,
+	"bereich":"Soziales"
+},
+{
+	"indikator": "Weiterbildungsförderung der Mitarbeiter",	"gewichtung":16,
+	"bereich":"Soziales"
+},
+{
+	"indikator": "Arbeitsbedingungen bei Verlagerung ins Ausland",	"gewichtung":16,
+	"bereich":"Soziales"
+},
+{
+	"indikator": "Gleichstellung der Frau durch bspw.Verdienstabstand",	"gewichtung":15,
+	"bereich":"Soziales"
+},
+{
+	"indikator": "Vorhandensein Risikomanagement",	"gewichtung":18,
+	"bereich":"Governance"
+},
+{
+	"indikator": "Vorhandensein strategischer Planung",	"gewichtung":16,
+	"bereich":"Governance"
+},
+{
+	"indikator": "Vorhandensein kontinuierliches Verbesserungsmanagement",	"gewichtung":14,
+	"bereich":"Governance"
+},
+{
+	"indikator": "Vorhandensein interner Verhaltenskodex zu ethischen Grundsätzen",	"gewichtung":13,
+	"bereich":"Governance"
+},
+{
+	"indikator": "Wahrnehmen der gesellschaftlichen Verantwortung",	"gewichtung":13,
+	"bereich":"Governance"
+},
+{
+	"indikator": "Zertifizierung und Managementsysteme",	"gewichtung":13,
+	"bereich":"Governance"
+},
+{
+	"indikator": "Vorhandensein von Kooperationen im Kontext Nachhaltigkeit",	"gewichtung":13,
+	"bereich":"Governance"
+}
+]
