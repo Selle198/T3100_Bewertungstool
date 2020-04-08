@@ -312,8 +312,10 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 function checkIndexOfQuestions(){
 	var lastQuestionIndex = parseInt(sessionStorage.getItem('lastIndex'));
 	var questions = JSON.parse(localStorage.getItem('questions'));
+	console.log('lastIndex: ' + lastQuestionIndex);
+	console.log('acutalIndex: ' + questions.length);
 	if(lastQuestionIndex < questions.length) {
-		var newQuestions = questions.filter( x => indexOf(x) > lastQuestionIndex);
+		var newQuestions = questions.filter( x => questions.indexOf(x) > lastQuestionIndex);
 		console.log(newQuestions);
 		localStorage.setItem('newQuestions', newQuestions);
 	}
@@ -408,6 +410,7 @@ function addQuestionToStorage(id, value, bereich, indikator) {
 	} else {
 		questions.push({'id':id, 'value': value, 'bereich': bereich, 'indikator': indikator});
 		sessionStorage.setItem('lastIndex', questions.indexOf(id));	// save index of the last question
+		console.log('added');
 	}
 	localStorage.setItem('questions', JSON.stringify(questions));
 }
