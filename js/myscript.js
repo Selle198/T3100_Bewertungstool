@@ -470,7 +470,7 @@ function averageValue() {
 	areas.forEach(function (item) {
 		var multiplier = getWeighting(item);
 		dividerArray.push(multiplier);
-		areaValues.push(averageValueArea.item*multiplier); // summiert alle Antwort-Werte auf für bestimmten Bereich
+		areaValues.push(averageValueArea[item]*multiplier); // summiert alle Antwort-Werte auf für bestimmten Bereich
 	});
 	var sum = areaValues.reduce((accumulator, currentValue) => accumulator + currentValue, 0); // summiert alle Antwort-Werte auf
 	var divider = dividerArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
