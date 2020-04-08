@@ -479,7 +479,7 @@ function averageValue() {
 	return Math.round((sum / divider));
 }
 
-// Average value of single areas without weighting
+/* // Average value of single areas without weighting
 function averageValueBereich(bereich, questions=null){
 	if ( questions == null ) {
 		var questions = JSON.parse(localStorage.getItem('questions')) || []; // wenn null dann leeres Array
@@ -489,7 +489,7 @@ function averageValueBereich(bereich, questions=null){
 	var questionsBereich = questionsFiltered.filter(x => x.bereich === bereich);
 	var sum = questionsBereich.reduce((accumulator, currentValue) => accumulator + parseInt(currentValue.value), 0);
 	return Math.round(20 *(sum / questionsBereich.length));
-}
+} */
 
 // Average value of each indicators for a single area without weighting
 function averageValueIndikator(bereich, indikator, questions=null){
