@@ -290,7 +290,7 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 						var date = new Date();
 						localStorage.setItem('date', ((date.getMonth()+1) + "-" + date.getDate() + "-" + date.getFullYear()));
 						localStorage.setItem('stateTestReference', localStorage.getItem('stateTest'));
-						localStorage.setItem('weightingReference', JSON.parse(localStorage.getItem('weighting')));
+						localStorage.setItem('weightingReference', localStorage.getItem('weightingIndikator'));
 						arithmeticMean();
 						var anker = document.getElementById("anker");
 						anker.href = "060_EvaluationOverview.html";
