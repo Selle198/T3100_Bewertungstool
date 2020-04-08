@@ -407,14 +407,13 @@
 					
 				} else if (referenceTest !== stateTest ||  referenceWeigthing !== JSON.stringify(weightingArray)) {
 					// some values aren't the same
-					
 					localStorage.setItem('stateTest', parseInt(referenceTest));
 					['Ökologie', 'Ökonomie', 'Soziales', 'Governance'].forEach( function (item, index) {
 						console.log(index);
 						var tmp = JSON.parse(referenceWeigthing);
 						localStorage.setItem('weighting' + item, tmp[index]);
 					});
-					alert('Sie haben die Testart oder die Gewichtung der Bereiche geändert.\nBitte stellen Sie die Werte Ihrer ursprünglichen Auswertung wieder ein und fahren Sie dann fort.');			
+					anker_lastResult.href="060_EvaluationOverview.html";
 				}
 			} else {
 				// no older evaluations available
