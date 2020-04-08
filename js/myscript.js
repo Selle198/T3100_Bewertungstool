@@ -452,7 +452,6 @@ function arithmeticMean(question=null) {
 				
 			});
 			localStorage.setItem('weightingIndikator', JSON.stringify(result));
-		}
 	};
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();	
