@@ -387,7 +387,7 @@ function addQuestionToStorage(id, value, bereich, indikator) {
 
 function reverseClick() {
 	var resultArray = JSON.parse(localStorage.getItem('questions'));
-	var anker = document.getElementById("anker");
+	var anker = document.getElementById("ankerBack");
 	reverseHandler = true;
 	
 	// check about questions in storage 
