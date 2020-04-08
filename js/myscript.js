@@ -290,6 +290,7 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 						var date = new Date();
 						localStorage.setItem('date', ((date.getMonth()+1) + "-" + date.getDate() + "-" + date.getFullYear()));
 						arithmeticMean();
+						alert('should be finished');
 						var anker = document.getElementById("anker");
 						anker.href = "060_EvaluationOverview.html";
 					}
@@ -428,7 +429,8 @@ function arithmeticMean(question=null) {
 	} else {
 		// Detailed test
 		url ="database/indicatorWeighting_detailedTest.json";
-	}	
+	}
+	console.log(url);
 	
 	// Verbindung zum Server (Mongoose 6.7) aufbauen
 	xmlhttp.onreadystatechange = function(){
