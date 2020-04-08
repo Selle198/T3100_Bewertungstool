@@ -391,7 +391,7 @@
 		}
 		
 		function minOneResultAvailable() {
-			var referenceTest = parseInt(localStorage.getItem('stateTestReference')); // old stateTest value
+			var referenceTest = localStorage.getItem('stateTestReference'); // old stateTest value
 			var referenceWeigthing = localStorage.getItem('weightingReference'); // old weighting values per area
 			
 			var stateTest = localStorage.getItem('stateTest'); // actual stateTest value
@@ -408,8 +408,8 @@
 				} else if (referenceTest !== stateTest ||  referenceWeigthing !== JSON.stringify(weightingArray)) {
 					// some values aren't the same
 					
-					localStorage.setItem('stateTest', referenceTest);
-					['Ökologie', 'Ökonomie', 'Soziales', 'Governance'].forEach(x => localStorage.setItem('weighting' + x, referenceWeigthing[x]));
+					localStorage.setItem('stateTest', parseInt(referenceTest));
+					['Ökologie', 'Ökonomie', 'Soziales', 'Governance'].forEach(x => localStorage.setItem('weighting' + x, JSON.parse(referenceWeigthing)[x]));
 					alert('Sie haben die Testart oder die Gewichtung der Bereiche geändert.\nBitte stellen Sie die Werte Ihrer ursprünglichen Auswertung wieder ein und fahren Sie dann fort.');			
 				}
 			} else {
