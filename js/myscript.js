@@ -299,7 +299,7 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 						//areas.forEach(x => weightingArray.push(getWeighting(x)*100));
 						
 						var reformattedArray = areas.map(bereich => {
-							weightingArray[bereich] = getWeighting(x)*100;
+							weightingArray[bereich] = getWeighting(bereich)*100;
 						});				
 						localStorage.setItem('weightingReference', JSON.stringify(reformattedArray));
 						
