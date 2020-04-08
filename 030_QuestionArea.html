@@ -409,9 +409,13 @@
 					// some values aren't the same
 					
 					localStorage.setItem('stateTest', parseInt(referenceTest));
-					['Ökologie', 'Ökonomie', 'Soziales', 'Governance'].forEach(x => localStorage.setItem('weighting' + x, JSON.parse(referenceWeigthing)[x]));
-					alert('Sie haben die Testart oder die Gewichtung der Bereiche geändert.\nBitte stellen Sie die Werte Ihrer ursprünglichen Auswertung wieder ein und fahren Sie dann fort.');			
-				}
+					['Ökologie', 'Ökonomie', 'Soziales', 'Governance'].forEach( function (item, index) {
+						console.log(index);
+						localStorage.setItem('weighting' + x, referenceWeigthing[index]));
+						alert('Sie haben die Testart oder die Gewichtung der Bereiche geändert.\nBitte stellen Sie die Werte Ihrer ursprünglichen Auswertung wieder ein und fahren Sie dann fort.');			
+				});
+					
+					}
 			} else {
 				// no older evaluations available
 				alert('Sie haben noch keine Bewertung durchgefüht, die Sie betrachten könnten.');
