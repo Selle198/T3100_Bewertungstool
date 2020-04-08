@@ -1,41 +1,37 @@
 /*********************************   Global   *******************************************************/
 var counterIdk = 0;
-var jsonArray; // JSON Inhalt mit Fragen
-var answerTypeArray = ['skala','prozent','jaNein', 'hoch', 'inkrementell'];
-var oldQuestion;
+var jsonArray; // json file with questions
+var answerTypeArray = ['skala','prozent','jaNein', 'hoch', 'inkrementell']; 
 var reverseHandler = false;
 var saveForReverse = 0;
 var bereichForResults = '';
 var areas = ['Ökologie','Ökonomie','Soziales','Governance'];
 var indikatorCounter = 0;
 
-/*********************************   000_Home.html   *******************************************************/
-function auswahlTestart (testName) {
-	// Prüfen ob Browser Web Storage unterstützt
-	if(typeof(Storage) !== "undefined"){		
-		// Check Testart
-		if(testName === "AusftestButton"){
-			// Ausführlicher Test wurde ausgewählt
-			localStorage.setItem("stateTest","12");
-			localStorage.setItem("idkMaxCounter","4");
+/*********************************   index.html   *******************************************************/
+function auswahlTestart(testName) {
+	// check if browser supports web storage
+	if(typeof(Storage) !== 'undefined'){		
+		// check test type
+		if(testName === 'AusftestButton') {
+			// detailed test was choosen
+			localStorage.setItem('stateTest','12');
+			localStorage.setItem('idkMaxCounter','4');
 			} else {
-				// Schnelltest wurde ausgewählt
-				localStorage.setItem("stateTest","6"); // Schnelltest
-				localStorage.setItem("idkMaxCounter","2");
+				// quick test was choosen
+				localStorage.setItem('stateTest','6');
+				localStorage.setItem('idkMaxCounter','2');	
 			}
-	}
-	else {
-		alert("Ihr Browser unterstützt einige Funktionalitäten nicht.\nBitte nutzen Sie einen anderen Browser oder aktuallisieren Sie Ihren Aktuellen.");
-	}
-	
-	
+	} else {
+		// browser doesn't support web storage
+		alert('Ihr Browser unterstützt einige Funktionalitäten nicht.\nBitte nutzen Sie einen anderen Browser oder aktualisieren Sie Ihren aktuellen.');
+	}	
 }
-
 /*********************************   010_Introduction.html   *******************************************************/
 
 
 
-/*********************************   020_Weighting.html   *******************************************************/
+/*********************************   020_Weighting.html      *******************************************************/
 
 // get the weighting from last evaluation
 function getLastWeighting(){
@@ -73,8 +69,8 @@ function sumOf(input, input1, input2, input3) {
 	var gesamt = parseInt(x1 + x2 + x3 + x4);
 	
 	// Dynamische Gesamtwertanzeige
-	var gesamtWertAnzeige = document.getElementById("gesamtwert");
-	gesamtWertAnzeige.innerHTML = gesamt +"%";
+	var gesamtWertAnzeige = document.getElementById('gesamtwert');
+	gesamtWertAnzeige.innerHTML = gesamt +'%';
 	
 	// 0% - Check
 	if(x1 == 0 || x2 == 0 || x3 == 0 || x4 == 0) {
@@ -214,10 +210,10 @@ function readJsonFile(bereich, indikator, nextBereich){
 	// Choose question json file
 	if(JSON.parse(localStorage.getItem('stateTest')) === 6) {
 		// Quicktest
-		url ="database/questions_quickTest.json";
+		url ="database/test.json";
 	} else {
 		// Detailed test
-		url ="database/questions_detailedTest.json";
+		url ="database/testLong.json";
 	}	
 	// Connect to server
 	xmlhttp.onreadystatechange = function(){
@@ -295,6 +291,7 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 						// Es sind keine Bereiche mehr verfügbar
 						var date = new Date();
 						localStorage.setItem('date', ((date.getMonth()+1) + "-" + date.getDate() + "-" + date.getFullYear()));
+						checkIndexOfQuestions();
 						//arithmeticMean();
 						var anker = document.getElementById("anker");
 						anker.href = "060_EvaluationOverview.html";
@@ -311,6 +308,15 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 		}
 	}
 	
+}
+function checkIndexOfQuestions(){
+	var lastQuestionIndex = parseInt(sessionStorage.getItem('lastIndex'));
+	var questions = JSON.parse(localStorage.getItem('questions'));
+	if(lastQuestionIndex < questions.length) {
+		var newQuestions = question.filter( x => indexOf(x) > lastQuestionIndex);
+		console.log(newQuestions);
+		localStorage.setItem('newQuestions', newQuestions);
+	}
 }
 
 function checkIndikatorCounter() {
@@ -401,6 +407,7 @@ function addQuestionToStorage(id, value, bereich, indikator) {
 		questions[filterId].value = value;
 	} else {
 		questions.push({'id':id, 'value': value, 'bereich': bereich, 'indikator': indikator});
+		sessionStorage.setItem('lastIndex', questions.indexOf(id));	// save index of the last question
 	}
 	localStorage.setItem('questions', JSON.stringify(questions));
 }
