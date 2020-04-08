@@ -391,9 +391,32 @@
 		}
 		
 		function minOneResultAvailable() {
-			if(localStorage.getItem('date')){
-				anker_lastResult.href="060_EvaluationOverview.html";
+			var referenceTest = localStorage.getItem('stateTestReference'); // old stateTest value
+			var referenceWeigthing = localStorage.getItem('weightingReference'); // old weighting values per area
+			
+			var stateTest = localStorage.getItem('stateTest'); // actual stateTest value
+			var weightingArray = [];
+			['Ökologie', 'Ökonomie', 'Soziales', 'Governance'].forEach(x => weightingArray.push(getWeighting(x)*100)); // actual weighting values
+			
+			if( localStorage.getItem('date') ) {
+				//older evaluation was made
+				
+				if ( referenceTest === stateTest &&  referenceWeigthing === JSON.stringify(weightingArray)) {
+					// all values are the same					
+					anker_lastResult.href="060_EvaluationOverview.html";
+					
+				} else if (referenceTest !== stateTest ||  referenceWeigthing !== JSON.stringify(weightingArray)) {
+					// some values aren't the same
+					localStorage.setItem('stateTest', parseInt(referenceTest));
+					['Ökologie', 'Ökonomie', 'Soziales', 'Governance'].forEach( function (item, index) {
+						console.log(index);
+						var tmp = JSON.parse(referenceWeigthing);
+						localStorage.setItem('weighting' + item, tmp[index]);
+					});
+					anker_lastResult.href="060_EvaluationOverview.html";
+				}
 			} else {
+				// no older evaluations available
 				alert('Sie haben noch keine Bewertung durchgefüht, die Sie betrachten könnten.');
 			}
 		}

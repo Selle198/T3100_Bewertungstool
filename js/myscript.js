@@ -288,8 +288,27 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 					} else {
 						// Es sind keine Bereiche mehr verfügbar
 						var date = new Date();
+						var weightingArray = {};
+						// set date
 						localStorage.setItem('date', ((date.getMonth()+1) + "-" + date.getDate() + "-" + date.getFullYear()));
+						
+						
+						// set reference values for next evaluation
+						localStorage.setItem('stateTestReference', localStorage.getItem('stateTest'));
+						
+						//areas.forEach(x => weightingArray.push(getWeighting(x)*100));
+						
+						var reformattedArray = areas.map(bereich => {
+							console.log(bereich);
+							console.log(getWeighting(bereich));
+							return getWeighting(bereich)*100;
+						});
+						localStorage.setItem('weightingReference', JSON.stringify(reformattedArray));
+						
+						// calculate average values
 						arithmeticMean();
+						
+						// go to next page
 						var anker = document.getElementById("anker");
 						anker.href = "060_EvaluationOverview.html";
 					}
