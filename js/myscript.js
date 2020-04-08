@@ -551,15 +551,16 @@ function download(filename, text) {
 
 /************************* Evaluation Overview ***************************************/
 function getBestBereich(){
+	var averageAreaValue = JSON.parse(localStorage.getItem('weightingIndikator'));
 	var strenghtsString = document.getElementById('overviewStrenghts').innerHTML;
 	var potentialString = document.getElementById('overviewPotential').innerHTML;
 	
 	// sortiert die durschnittlichen Werte der einzelnen Bereiche
-	var bestValueStringList= areas.sort((a,b) => averageValueBereich(b) - averageValueBereich(a)); 
+	var bestValueStringList= areas.sort((a,b) => averageAreaValue[b] - averageAreaValue[a]); 
 	console.log(bestValueStringList);
 		
 	// display best Value
-	var newStringStrenghts = strenghtsString.replace('z/t', averageValueBereich(bestValueStringList[0]));
+	var newStringStrenghts = strenghtsString.replace('z/t', averageAreaValue[bestValueStringList[0]]);
 	document.getElementById('overviewStrenghts').innerHTML = newStringStrenghts;
 	// display best Area
 	strenghtsString = document.getElementById('overviewStrenghts').innerHTML;
@@ -567,7 +568,7 @@ function getBestBereich(){
 	document.getElementById('overviewStrenghts').innerHTML = newStringStrenghts;
 	
 	// display worst Value
-	var newStringStrenghts = potentialString.replace('z/t', averageValueBereich(bestValueStringList[bestValueStringList.length-1]));
+	var newStringStrenghts = potentialString.replace('z/t', averageAreaValue[bestValueStringList[bestValueStringList.length-1]]);
 	document.getElementById('overviewPotential').innerHTML = newStringStrenghts;
 	// display worst Area
 	potentialString = document.getElementById('overviewPotential').innerHTML;
