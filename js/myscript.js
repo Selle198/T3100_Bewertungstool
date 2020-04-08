@@ -313,7 +313,7 @@ function checkIndexOfQuestions(){
 	var lastQuestionIndex = parseInt(sessionStorage.getItem('lastIndex'));
 	var questions = JSON.parse(localStorage.getItem('questions'));
 	if(lastQuestionIndex < questions.length) {
-		var newQuestions = question.filter( x => indexOf(x) > lastQuestionIndex);
+		var newQuestions = questions.filter( x => indexOf(x) > lastQuestionIndex);
 		console.log(newQuestions);
 		localStorage.setItem('newQuestions', newQuestions);
 	}
