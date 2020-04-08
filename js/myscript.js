@@ -288,9 +288,11 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 					} else {
 						// Es sind keine Bereiche mehr verfügbar
 						var date = new Date();
+						var weightingArray = [];
 						localStorage.setItem('date', ((date.getMonth()+1) + "-" + date.getDate() + "-" + date.getFullYear()));
 						localStorage.setItem('stateTestReference', localStorage.getItem('stateTest'));
-						localStorage.setItem('weightingReference', localStorage.getItem('weightingIndikator'));
+						areas.forEach(x => weightingArray.push(getWeighting(x)));
+						localStorage.setItem('weightingReference', weightingArray);
 						arithmeticMean();
 						var anker = document.getElementById("anker");
 						anker.href = "060_EvaluationOverview.html";
