@@ -408,7 +408,6 @@ function reverseClick() {
 	} else {
 		// no questions available
 		anker.href = "020_Weighting.html";
-		alert('Whaaat');
 	}
 }
 
