@@ -406,8 +406,10 @@ function addQuestionToStorage(id, value, bereich, indikator) {
 	// ID Filter
 	var filterId = questions.findIndex(x => x.id == id);
 	if(filterId != -1){
-		questions.splice(filterId, 1);
-		console.log('element with ID' + filterId + 'deleted');
+		//questions.splice(filterId, 1);
+		//console.log('element with ID' + filterId + ' deleted');
+		questions.filter(x => questions.indexOf(x.id) > filterId);
+		console.log('show new questionsArray' + questions);
 		//questions[filterId].value = value;
 	}
 	questions.push({'id':id, 'value': value, 'bereich': bereich, 'indikator': indikator});
