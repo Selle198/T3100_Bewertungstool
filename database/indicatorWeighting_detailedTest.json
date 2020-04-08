@@ -93,11 +93,12 @@
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Vorhandensein konkreter Maßnahmen Wettbewerbsposition",	"gewichtung":6,
+	"indikator": "Zertifizierung und Managementsysteme",
+	"gewichtung":10,
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Zertifizierung und Managementsysteme",	"gewichtung":10,
+	"indikator": "Vorhandensein konkreter Maßnahmen Wettbewerbsposition",	"gewichtung":6,
 	"bereich":"Ökonomie"
 },
 {
@@ -117,7 +118,7 @@
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Gleichstellung der Frau durch bspw.Verdienstabstand",	"gewichtung":8,
+	"indikator": "Gleichstellung der Frau durch bspw. Verdienstabstand",	"gewichtung":8,
 	"bereich":"Soziales"
 },
 {
