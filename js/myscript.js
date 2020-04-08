@@ -297,7 +297,7 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 						localStorage.setItem('stateTestReference', localStorage.getItem('stateTest'));
 						
 						areas.forEach(x => weightingArray.push({x: getWeighting(x)*100}));						
-						localStorage.setItem('weightingReference', weightingArray);
+						localStorage.setItem('weightingReference', JSON.stringify(weightingArray));
 						
 						// calculate average values
 						arithmeticMean();
