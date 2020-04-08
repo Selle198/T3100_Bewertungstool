@@ -289,7 +289,7 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 						// Es sind keine Bereiche mehr verfügbar
 						var date = new Date();
 						localStorage.setItem('date', ((date.getMonth()+1) + "-" + date.getDate() + "-" + date.getFullYear()));
-						//arithmeticMean();
+						arithmeticMean();
 						var anker = document.getElementById("anker");
 						anker.href = "060_EvaluationOverview.html";
 					}
@@ -526,7 +526,8 @@ function exportData() {
 	var data = {
 		stateTest: localStorage.getItem('stateTest'),
 		date: localStorage.getItem('date'),
-		weighting: dataArray,		
+		weighting: dataArray,
+		averageAreaValues: localStorage.getItem('weightingIndikator');
 		questions: JSON.parse(localStorage.getItem('questions'))
 	}
 	if( parseInt(localStorage.getItem('stateTest')) === 12) {

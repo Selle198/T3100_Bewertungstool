@@ -58,7 +58,7 @@
 		}
 		var bereich = localStorage.getItem('AreaForResults'); // choosen area
 		var indikatoren = getIndikatorenFromBereich(bereich);
-		//var arithmeticValue = arithmeticMean(); // returns the average value for each area
+		var arithmeticValue = JSON.parse(localStorage.getItem('weightingIndikator')); // returns the average value for each area
 		var color = Chart.helpers.color;
 		
 		// Line Chart
@@ -73,7 +73,7 @@
 				data: {
 					labels: newTest.map(x => x.date).concat(localStorage.getItem('date')),
 					datasets: [{
-						data: newTest.map(x => arithmeticMean(x.questions).bereich.concat(arithmeticMean().bereich)),
+						data: newTest.map(x=> x.JSON.parse(averageAreaValues).bereich).concat(arithmeticValue.bereich),
 						//averageValueBereich(bereich, x.questions)).concat(averageValueBereich(bereich)),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
 						fill: false,
 						borderColor: 'rgb(255, 165, 0)',
