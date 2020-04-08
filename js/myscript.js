@@ -441,16 +441,16 @@ function arithmeticMean(question=null) {
 				} else {
 					var value = Math.round(averageValueIndikator(item.bereich, item.indikator, question) * item.gewichtung / 100);
 				}
-				if(!result[item.bereich]){
+				if( !result[item.bereich] ){
 					result[item.bereich] = value;
 				} else {
 					result[item.bereich] += value;
 				}				 
 				console.log(result);
 				console.log(item.indikator);
-			}
+			});
 			localStorage.setItem('weightingIndikator', JSON.stringify(result));
-		});
+		}
 	};
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();	
