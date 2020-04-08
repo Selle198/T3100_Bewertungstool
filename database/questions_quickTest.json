@@ -188,7 +188,7 @@
 	"id":"24",
 	"frage":"Wird die Weiterbildung der Mitarbeiter gefördert?",
 	"antworttyp":"jaNein",
-	"gewichtung":"6",
+	"gewichtung":"16",
 	"bereich":"Soziales"
 },
 {
@@ -207,7 +207,6 @@
 	"gewichtung":"15",
 	"bereich":"Soziales"
 },
-
 {
 	"indikator": "Vorhandensein Risikomanagement",
 	"id":"27",
