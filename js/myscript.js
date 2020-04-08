@@ -210,10 +210,10 @@ function readJsonFile(bereich, indikator, nextBereich){
 	// Choose question json file
 	if(JSON.parse(localStorage.getItem('stateTest')) === 6) {
 		// Quicktest
-		url ="database/questions_quickTest.json";
+		url ="database/test.json";
 	} else {
 		// Detailed test
-		url ="database/questions_detailedTest.json";
+		url ="database/testLong.json";
 	}	
 	// Connect to server
 	xmlhttp.onreadystatechange = function(){

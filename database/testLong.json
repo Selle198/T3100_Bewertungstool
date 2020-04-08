@@ -1,0 +1,42 @@
+[
+{
+	"indikator": "Erneuerbare Energien",
+	"id":"1",
+	"frage":"Welchen Anteil am Gesamtenenergieverbrauch haben erneuerbare Energien?",
+	"antworttyp":"Prozent",
+	"gewichtung":"19",
+	"bereich":"Ökologie"
+},
+{
+	"indikator": "Arbeitsproduktivität",
+	"id":"2",
+	"frage":"Wie entwickelt sich die Produktivität der Mitarbeiter?",
+	"antworttyp":"Inkrementell",
+	"gewichtung":"16",
+	"bereich":"Ökonomie"
+},
+{
+	"indikator": "Gleichstellung der Frau durch bspw. Verdienstabstand",
+	"id":"3",
+	"frage":"Findet die „Gleichstellung der Frau“ in Ihrem Unternehmen Beachtung?",
+	"antworttyp":"Skala",
+	"gewichtung":"15",
+	"bereich":"Soziales"
+},
+{
+	"indikator": "Vorhandensein Risikomanagement",
+	"id":"4",
+	"frage":"Wie umfassend ist Ihr Risikomanagement?",
+	"antworttyp":"Skala",
+	"gewichtung":"18",
+	"bereich":"Governance"
+},
+{
+	"indikator": "Vorhandensein Risikomanagement",
+	"id":"5",
+	"frage":"Wie umfassend ist Ihr Risikomanagement?",
+	"antworttyp":"Skala",
+	"gewichtung":"18",
+	"bereich":"Governance"
+}
+]
