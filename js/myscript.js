@@ -6,7 +6,6 @@ var reverseHandler = false;
 var saveForReverse = 0;
 var bereichForResults = '';
 var areas = ['Ökologie','Ökonomie','Soziales','Governance'];
-var indikatorCounter = 0;
 
 /*********************************   index.html   *******************************************************/
 function auswahlTestart(testName) {
@@ -285,13 +284,11 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 					// Es ist keine Frage mehr verfügbar
 					if (nextBereich){
 						// Es sind noch Bereiche verfügbar
-						indikatorCounter = 0; // reset indicator Counter
 						loadQuestion(nextBereich, frage.indikator);
 					} else {
 						// Es sind keine Bereiche mehr verfügbar
 						var date = new Date();
 						localStorage.setItem('date', ((date.getMonth()+1) + "-" + date.getDate() + "-" + date.getFullYear()));
-						checkIndexOfQuestions();
 						//arithmeticMean();
 						var anker = document.getElementById("anker");
 						anker.href = "060_EvaluationOverview.html";
@@ -309,28 +306,6 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 	}
 	
 }
-function checkIndexOfQuestions(){
-	var lastQuestionIndex = parseInt(sessionStorage.getItem('lastIndex'));
-	var questions = JSON.parse(localStorage.getItem('questions'));
-	console.log('lastIndex: ' + lastQuestionIndex);
-	console.log('acutalIndex: ' + questions.length);
-	if(lastQuestionIndex < questions.length) {
-		var newQuestions = questions.filter( x => questions.indexOf(x) > lastQuestionIndex);
-		console.log(newQuestions);
-		localStorage.setItem('newQuestions', newQuestions);
-	}
-}
-
-function checkIndikatorCounter() {
-	if(indikatorCounter > parseInt(localStorage.getItem('statTest'))) {
-		// Indikator-Anzahl nicht überschritten
-		return true;
-	} else {
-		// Indikator-Anzahl überschritten
-		return false;
-	}	
-}
-
 
 function checkIdkCounter() {
 	if(counterIdk > parseInt(localStorage.getItem('idkMaxCounter'))) {
@@ -477,17 +452,18 @@ function arithmeticMean() {
 	xmlhttp.send();	
 } 
 
-// Average value of all areas
+// Average value over all areas with area and indicator weighting
 function averageValue() {
 	var questions = JSON.parse(localStorage.getItem('questions')) || []; // wenn null dann leeres Array
 	var questionsFiltered = questions.filter(x => x.value != "f"); // Alle Einträge außer "ich weiß nicht"
 	var areaValues = [];
+	var averageValueArea = JSON.parse(localStorage.getItem('weightingIndikator')); // includes average values for each area
 	var dividerArray = [];
 	
 	areas.forEach(function (item) {
 		var multiplier = getWeighting(item);
 		dividerArray.push(multiplier);
-		areaValues.push(averageValueBereich(item)*multiplier); // summiert alle Antwort-Werte auf für bestimmten Bereich
+		areaValues.push(averageValueArea.item*multiplier); // summiert alle Antwort-Werte auf für bestimmten Bereich
 	});
 	var sum = areaValues.reduce((accumulator, currentValue) => accumulator + currentValue, 0); // summiert alle Antwort-Werte auf
 	var divider = dividerArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
@@ -496,7 +472,7 @@ function averageValue() {
 	return Math.round((sum / divider));
 }
 
-// Average value of single areas
+// Average value of single areas without weighting
 function averageValueBereich(bereich, questions=null){
 	if ( questions == null ) {
 		var questions = JSON.parse(localStorage.getItem('questions')) || []; // wenn null dann leeres Array
@@ -508,7 +484,7 @@ function averageValueBereich(bereich, questions=null){
 	return Math.round(20 *(sum / questionsBereich.length));
 }
 
-// Average value of all indicators of a single area
+// Average value of each indicators for a single area without weighting
 function averageValueIndikator(bereich, indikator){
 	var questions = JSON.parse(localStorage.getItem('questions')) || []; // wenn null dann leeres Array
 	var questionsFiltered = questions.filter(x => x.value != "f"); // Alle Einträge außer "ich weiß nicht"
