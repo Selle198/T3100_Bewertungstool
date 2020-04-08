@@ -525,7 +525,7 @@ function exportData() {
 		stateTest: localStorage.getItem('stateTest'),
 		date: localStorage.getItem('date'),
 		weighting: dataArray,
-		averageAreaValues: localStorage.getItem('weightingIndikator');
+		averageAreaValues: localStorage.getItem('weightingIndikator'),
 		questions: JSON.parse(localStorage.getItem('questions'))
 	}
 	if( parseInt(localStorage.getItem('stateTest')) === 12) {
