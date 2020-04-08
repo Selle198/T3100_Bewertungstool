@@ -408,7 +408,7 @@ function addQuestionToStorage(id, value, bereich, indikator) {
 	if(filterId != -1){
 		questions.splice(filterId, 1);
 		//console.log('element with ID' + filterId + ' deleted');
-		questions.filter(x => x.id-1 < filterId);
+		questions = questions.filter(x => x.id-1 < filterId);
 		console.log(questions);
 		//questions[filterId].value = value;
 	}
