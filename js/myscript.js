@@ -416,7 +416,7 @@ function reverseClick() {
 
 
 // TODO: arithmetic mean
-function arithmeticMean() {
+function arithmeticMean(question=null) {
 	var jsonIndicatorArray;
 	var xmlhttp = new XMLHttpRequest();
 	var url = "";
@@ -436,7 +436,11 @@ function arithmeticMean() {
 			jsonIndicatorArray = JSON.parse(this.responseText); // in JS Objekte umwandeln
 			var result = {};
 			jsonIndicatorArray.forEach(function (item) {
-				var value = Math.round(averageValueIndikator(item.bereich, item.indikator) * item.gewichtung / 100);
+				if( question == null) {
+					var value = Math.round(averageValueIndikator(item.bereich, item.indikator) * item.gewichtung / 100);
+				} else {
+					var value = Math.round(averageValueIndikator(item.bereich, item.indikator, question) * item.gewichtung / 100);
+				}
 				if(!result[item.bereich]){
 					result[item.bereich] = value;
 				} else {
@@ -444,6 +448,8 @@ function arithmeticMean() {
 				}				 
 				console.log(result);
 				console.log(item.indikator);
+				}
+				
 			});
 			localStorage.setItem('weightingIndikator', JSON.stringify(result));
 		}
@@ -485,8 +491,10 @@ function averageValueBereich(bereich, questions=null){
 }
 
 // Average value of each indicators for a single area without weighting
-function averageValueIndikator(bereich, indikator){
-	var questions = JSON.parse(localStorage.getItem('questions')) || []; // wenn null dann leeres Array
+function averageValueIndikator(bereich, indikator, questions=null){
+	if ( questions == null ) {
+		var questions = JSON.parse(localStorage.getItem('questions')) || []; // wenn null dann leeres Array
+	}
 	var questionsFiltered = questions.filter(x => x.value != "f"); // Alle Einträge außer "ich weiß nicht"
 
 	var questionsBereich = questionsFiltered.filter(x => x.bereich === bereich); // nach Bereich filtern
