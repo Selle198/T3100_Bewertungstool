@@ -290,14 +290,30 @@
 {
 	"indikator": "Vorhandensein konkreter Maßnahmen Wettbewerbsposition",
 	"id":"36",
-	"frage":"Ökonomie Frage2?",
+	"frage":"Setzen sie bereits spezielle Werbekampangen um oder planen diese umzusetzen?",
+	"antworttyp":"Skala",
+	"gewichtung":"6",
+	"bereich":"Ökonomie"
+},
+{
+	"indikator": "Vorhandensein konkreter Maßnahmen Wettbewerbsposition",
+	"id":"37",
+	"frage":"Arbeiten Sie stetig an der Entwicklung neuer, zukunftsorientierter Produkte?",
+	"antworttyp":"jaNein",
+	"gewichtung":"6",
+	"bereich":"Ökonomie"
+},
+{
+	"indikator": "Vorhandensein konkreter Maßnahmen Wettbewerbsposition",
+	"id":"38",
+	"frage":"Sind in Ihrem Unternehmen spezielle Mitarbeiter eingestellt, die sich mit zukunftsorientierten Themen auseinandersetzen?",
 	"antworttyp":"jaNein",
 	"gewichtung":"6",
 	"bereich":"Ökonomie"
 },
 {
 	"indikator": "Arbeitssicherheit",
-	"id":"37",
+	"id":"39",
 	"frage":"Wie schätzen Sie die Arbeitssicherheit in Ihrem Unternehmen ein?",
 	"antworttyp":"Hoch",
 	"gewichtung":"10",
@@ -305,7 +321,7 @@
 },
 {
 	"indikator": "Vorhandensein/Zugänglichkeit Schulungsplan Mitarbeiter",
-	"id":"38",
+	"id":"40",
 	"frage":"Ist der Inhalt und Zugang zu einem Schulungsplan zur Arbeitssicherheit für die Mitarbeiter gut gestaltet?",
 	"antworttyp":"jaNein",
 	"gewichtung":"10",
@@ -313,7 +329,7 @@
 },
 {
 	"indikator": "Weiterbildungsförderung der Mitarbeiter",
-	"id":"39",
+	"id":"41",
 	"frage":"Wird die Weiterbildung der Mitarbeiter gefördert?",
 	"antworttyp":"jaNein",
 	"gewichtung":"8",
@@ -321,7 +337,7 @@
 },
 {
 	"indikator": "Arbeitsbedingungen bei Verlagerung ins Ausland",
-	"id":"40",
+	"id":"42",
 	"frage":"Wie stark verändern sich die Arbeitsbedingungen bei Verlagerungen ins Ausland?",
 	"antworttyp":"Prozent",
 	"gewichtung":"8",
@@ -329,7 +345,7 @@
 },
 {
 	"indikator": "Gleichstellung der Frau durch bspw. Verdienstabstand",
-	"id":"41",
+	"id":"43",
 	"frage":"Findet die „Gleichstellung der Frau“ in Ihrem Unternehmen Beachtung?",
 	"antworttyp":"Skala",
 	"gewichtung":"8",
@@ -337,7 +353,7 @@
 },
 {
 	"indikator": "Anzahl Verbesserungsvorschläge / Umgang mit diesen",
-	"id":"42",
+	"id":"44",
 	"frage":"Wie verändert sich die Anzahl von Verbesserungsvorschlägen?",
 	"antworttyp":"Inkrementell",
 	"gewichtung":"8",
@@ -345,7 +361,7 @@
 },
 {
 	"indikator": "Anzahl Verbesserungsvorschläge / Umgang mit diesen",
-	"id":"43",
+	"id":"45",
 	"frage":"Wie verändert sich der realisierte Nutzen der Verbesserungsvorschläge?",
 	"antworttyp":"Inkrementell",
 	"gewichtung":"8",
@@ -353,7 +369,7 @@
 },
 {
 	"indikator": "Förderung und Umgang mit Behinderten",
-	"id":"44",
+	"id":"46",
 	"frage":"Wie hoch schätzen Sie den Umgang mit behinderten Menschen in Ihrem Unternehmen ein? (Förderung, Integration…)",
 	"antworttyp":"Hoch",
 	"gewichtung":"8",
@@ -361,7 +377,7 @@
 },
 {
 	"indikator": "Sozialstandards bei Lieferanten und Vorlieferanten",
-	"id":"45",
+	"id":"47",
 	"frage":"Besitzen Sie bereits Sozialstandards bei Lieferanten und Vorlieferanten?",
 	"antworttyp":"Skala",
 	"gewichtung":"6",
@@ -369,7 +385,7 @@
 },
 {
 	"indikator": "Gesundheitsförderung der Mitarbeiter",
-	"id":"46",
+	"id":"48",
 	"frage":"Wie stark ist das Thema Gesundheitsmanagement (der Mitarbeiter) ausgeprägt? (Förderung der Gesundheit – Essen, Sport, Zeit)?",
 	"antworttyp":"Prozent",
 	"gewichtung":"6",
@@ -377,7 +393,7 @@
 },
 {
 	"indikator": "Einsatz von Zeitarbeitern und Überwachung Standards",
-	"id":"47",
+	"id":"49",
 	"frage":"Wie hoch schätzen Sie die Anstrengungen Ihres Unternehmens zur Einhaltung von Sozialstandards ein?",
 	"antworttyp":"Hoch",
 	"gewichtung":"6",
@@ -385,31 +401,31 @@
 },
 {
 	"indikator": "Flexible und familienfreundliche Arbeitszeitmodelle",
-	"id":"48",
+	"id":"50",
 	"frage":"Gibt es familienfreundliche und flexible Arbeitszeitmodelle?",
 	"antworttyp":"jaNein",
 	"gewichtung":"6",
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Förderung und Umgang mit älteren Mitarbeitern",
-	"id":"49",
-	"frage":"Wie hoch schätzen Sie Integration von und Wertschätzung älterer Mitarbeiter ein?",
-	"antworttyp":"Hoch",
-	"gewichtung":"6",
-	"bereich":"Soziales"
-},
-{
 	"indikator": "Zertifizierung und Managementsysteme",
-	"id":"50",
+	"id":"51",
 	"frage":"Sind Sie zertifiziert nach ISO45001 (Anforderungen an Arbeitsschutzmanagementsysteme)?",
 	"antworttyp":"jaNein",
 	"gewichtung":"10",
 	"bereich":"Soziales"
 },
 {
+	"indikator": "Förderung und Umgang mit älteren Mitarbeitern",
+	"id":"52",
+	"frage":"Wie hoch schätzen Sie Integration von und Wertschätzung älterer Mitarbeiter ein?",
+	"antworttyp":"Hoch",
+	"gewichtung":"6",
+	"bereich":"Soziales"
+},
+{
 	"indikator": "Vorhandensein Risikomanagement",
-	"id":"51",
+	"id":"53",
 	"frage":"Wie umfassend ist Ihr Risikomanagement?",
 	"antworttyp":"Skala",
 	"gewichtung":"18",
@@ -417,7 +433,7 @@
 },
 {
 	"indikator": "Vorhandensein strategischer Planung",
-	"id":"52",
+	"id":"54",
 	"frage":"Wie hoch schätzen Sie Ihre strategische Planung ein, um für die Zukunft gerüstet zu sein?",
 	"antworttyp":"Hoch",
 	"gewichtung":"16",
@@ -425,7 +441,7 @@
 },
 {
 	"indikator": "Vorhandensein kontinuierliches Verbesserungsmanagement",
-	"id":"53",
+	"id":"55",
 	"frage":"Wie umfassend, alle organisatorischen Ebenen einschließend, ist ihr KVP?",
 	"antworttyp":"Prozent",
 	"gewichtung":"14",
@@ -433,7 +449,7 @@
 },
 {
 	"indikator": "Vorhandensein interner Verhaltenskodex zu ethischen Grundsätzen",
-	"id":"54",
+	"id":"56",
 	"frage":"Gibt es einen Kodex, der die Ethik im Unternehmen definiert?",
 	"antworttyp":"jaNein",
 	"gewichtung":"13",
@@ -441,7 +457,7 @@
 },
 {
 	"indikator": "Wahrnehmen der gesellschaftlichen Verantwortung",
-	"id":"55",
+	"id":"57",
 	"frage":"Wie hoch schätzen Sie den regionalen Anteil Ihres Unternehmens in der Rolle als Gestalter der Gesellschaft ein?",
 	"antworttyp":"Hoch",
 	"gewichtung":"13",
@@ -449,7 +465,7 @@
 },
 {
 	"indikator": "Zertifizierung und Managementsysteme",
-	"id":"56",
+	"id":"58",
 	"frage":"Sind Sie zertifiziert nach ISO26000 (Leitfaden für gesellschaftliche Verantwortung)?",
 	"antworttyp":"jaNein",
 	"gewichtung":"13",
@@ -457,7 +473,7 @@
 },
 {
 	"indikator": "Vorhandensein von Kooperationen im Kontext Nachhaltigkeit",
-	"id":"57",
+	"id":"59",
 	"frage":"Gibt es Kooperationen (Unternehmen, Bildungseinrichtungen, Politik) im Kontext zur Nachhaltigkeit?",
 	"antworttyp":"jaNein",
 	"gewichtung":"13",

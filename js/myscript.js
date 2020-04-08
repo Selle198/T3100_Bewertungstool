@@ -290,7 +290,6 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 						var date = new Date();
 						localStorage.setItem('date', ((date.getMonth()+1) + "-" + date.getDate() + "-" + date.getFullYear()));
 						arithmeticMean();
-						alert('should be finished');
 						var anker = document.getElementById("anker");
 						anker.href = "060_EvaluationOverview.html";
 					}
@@ -388,6 +387,7 @@ function addQuestionToStorage(id, value, bereich, indikator) {
 
 function reverseClick() {
 	var resultArray = JSON.parse(localStorage.getItem('questions'));
+	var anker = document.getElementById("ankerBack");
 	reverseHandler = true;
 	
 	// check about questions in storage 
@@ -403,13 +403,11 @@ function reverseClick() {
 			loadQuestion(result.bereich, result.indikator);
 		} else {
 			// very first question reached
-			// TODO: eine html Seite zurück
-			alert('Soup dog');
+			anker.href = "020_Weighting.html";
 		}
 	} else {
 		// no questions available
-		// TODO: eine html Seite zurück
-		alert('Whaaat');
+		anker.href = "020_Weighting.html";
 	}
 }
 
