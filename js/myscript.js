@@ -437,11 +437,12 @@ function arithmeticMean(question=null) {
 		if(this.readyState == 4 && this.status == 200) {
 			jsonIndicatorArray = JSON.parse(this.responseText); // in JS Objekte umwandeln
 			var result = {};
+			var value;
 			jsonIndicatorArray.forEach(function (item) {
 				if( question == null) {
-					var value = Math.round(averageValueIndikator(item.bereich, item.indikator) * item.gewichtung / 100);
+					value = Math.round(averageValueIndikator(item.bereich, item.indikator) * item.gewichtung / 100);
 				} else {
-					var value = Math.round(averageValueIndikator(item.bereich, item.indikator, question) * item.gewichtung / 100);
+					value = Math.round(averageValueIndikator(item.bereich, item.indikator, question) * item.gewichtung / 100);
 				}
 				if( !result[item.bereich] ){
 					result[item.bereich] = value;
@@ -501,6 +502,7 @@ function averageValueIndikator(bereich, indikator, questions=null){
 	var questionsIndikator = questionsBereich.filter(x => x.indikator === indikator); // nach Indikator filtern
 	var sum = questionsIndikator.reduce((accumulator, currentValue) => accumulator + parseInt(currentValue.value), 0); // je Indikator Werte aufsummieren
 	console.log(questionsBereich);
+	consol.log(questionsIndikator.length);
 	return Math.round(20 *(sum / questionsIndikator.length));
 }
 
