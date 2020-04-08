@@ -102,7 +102,7 @@
 					labels: newTest.map(x => x.date).concat(localStorage.getItem('date')),
 					datasets: 
 					[{
-						data: newTest.map(x => (JSON.parse(x.averageAreaValues))[bereich]).concat(averageAreaValue['Ökologie']),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
+						data: newTest.map(x => (JSON.parse(x.averageAreaValues))['Ökologie']).concat(averageAreaValue['Ökologie']),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
 						fill: false,
 						label: 'Ökologie',
 						borderColor: 'rgb(46, 139, 87)',
