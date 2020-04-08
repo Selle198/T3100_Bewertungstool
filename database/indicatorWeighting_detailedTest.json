@@ -146,11 +146,12 @@
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Förderung und Umgang mit älteren Mitarbeitern",	"gewichtung":6,
+	"indikator": "Zertifizierung und Managementsysteme",
+	"gewichtung":10,
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Zertifizierung und Managementsysteme",	"gewichtung":10,
+	"indikator": "Förderung und Umgang mit älteren Mitarbeitern",	"gewichtung":6,
 	"bereich":"Soziales"
 },
 {
