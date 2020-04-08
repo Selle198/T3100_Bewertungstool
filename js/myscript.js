@@ -300,6 +300,7 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 						
 						var reformattedArray = areas.map(bereich => {
 							weightingArray[bereich] = getWeighting(bereich)*100;
+							return weightingArray;
 						});				
 						localStorage.setItem('weightingReference', JSON.stringify(reformattedArray));
 						
