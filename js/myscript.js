@@ -448,10 +448,9 @@ function arithmeticMean(question=null) {
 				}				 
 				console.log(result);
 				console.log(item.indikator);
-				}
-				
-			});
+			}
 			localStorage.setItem('weightingIndikator', JSON.stringify(result));
+		});
 	};
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();	
