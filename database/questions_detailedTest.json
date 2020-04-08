@@ -280,19 +280,19 @@
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Vorhandensein konkreter Maßnahmen Wettbewerbsposition",
-	"id":"35",
-	"frage":"Ökonomie Frage2?",
-	"antworttyp":"jaNein",
-	"gewichtung":"6",
-	"bereich":"Ökonomie"
-},
-{
 	"indikator": "Zertifizierung und Managementsysteme",
-	"id":"36",
+	"id":"35",
 	"frage":"Sind Sie zertifiziert nach ISO9001 (Anforderungen an Managementsysteme)?",
 	"antworttyp":"jaNein",
 	"gewichtung":"10",
+	"bereich":"Ökonomie"
+},
+{
+	"indikator": "Vorhandensein konkreter Maßnahmen Wettbewerbsposition",
+	"id":"36",
+	"frage":"Ökonomie Frage2?",
+	"antworttyp":"jaNein",
+	"gewichtung":"6",
 	"bereich":"Ökonomie"
 },
 {
@@ -328,7 +328,7 @@
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Gleichstellung der Frau durch bspw.Verdienstabstand",
+	"indikator": "Gleichstellung der Frau durch bspw. Verdienstabstand",
 	"id":"41",
 	"frage":"Findet die „Gleichstellung der Frau“ in Ihrem Unternehmen Beachtung?",
 	"antworttyp":"Skala",
