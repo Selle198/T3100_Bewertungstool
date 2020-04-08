@@ -209,12 +209,10 @@ function readJsonFile(bereich, indikator, nextBereich){
 	// Choose question json file
 	if(JSON.parse(localStorage.getItem('stateTest')) === 6) {
 		// Quicktest
-		url ="database/test.json";
-		//url ="database/questions_quickTest.json";
+		url ="database/questions_quickTest.json";
 	} else {
 		// Detailed test
-		url ="database/test.json";
-		//url ="database/questions_detailedTest.json";
+		url ="database/questions_detailedTest.json";
 	}	
 	// Connect to server
 	xmlhttp.onreadystatechange = function(){
@@ -292,7 +290,7 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 						var date = new Date();
 						localStorage.setItem('date', ((date.getMonth()+1) + "-" + date.getDate() + "-" + date.getFullYear()));
 						localStorage.setItem('stateTestReference', localStorage.getItem('stateTest'));
-						localStorage.setItem('weightingReference', localStorage.getItem('weighting'));
+						localStorage.setItem('weightingReference', JSON.parse(localStorage.getItem('weighting')));
 						arithmeticMean();
 						var anker = document.getElementById("anker");
 						anker.href = "060_EvaluationOverview.html";
