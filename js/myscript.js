@@ -298,11 +298,10 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 						
 						//areas.forEach(x => weightingArray.push(getWeighting(x)*100));
 						
-						var reformattedArray = areas.forEach(bereich => {
+						var reformattedArray = areas.map(bereich => {
 							console.log(bereich);
 							console.log(getWeighting(bereich));
-							weightingArray[bereich] = getWeighting(bereich)*100;
-							//return weightingArray;
+							return getWeighting(bereich)*100;
 						});
 						localStorage.setItem('weightingReference', JSON.stringify(reformattedArray));
 						
