@@ -210,10 +210,10 @@ function readJsonFile(bereich, indikator, nextBereich){
 	// Choose question json file
 	if(JSON.parse(localStorage.getItem('stateTest')) === 6) {
 		// Quicktest
-		url ="database/test.json";
+		url ="database/questions_quickTest.json";
 	} else {
 		// Detailed test
-		url ="database/testLong.json";
+		url ="database/questions_detailedTest.json";
 	}	
 	// Connect to server
 	xmlhttp.onreadystatechange = function(){
@@ -348,13 +348,8 @@ function filterIndikator(singleAreaArray, bereich, indikator) {
 	if (!question) {
 		// Keine Fragen im aktuellen Indikator vorhanden
 		question = singleAreaArray[0]; // Erstes Element des Arrays auswählen
-		console.log('Wechsel zu Indikator: ' + question.indikator);
-		indikatorCounter++;
-		sessionStorage.setItem('IndCounter', indikatorCounter);
-		//console.log('Indik.Counter in filterIndikator: ' + indikatorCounter);
 	}	
 	answerTypeArray.forEach(checkAnswerType, question);	// Antworttyp überprüfen
-	console.log(question.indikator);
 	return question;
 }
 
@@ -403,18 +398,15 @@ function getInput() {
 // Question Array to localStorage
 function addQuestionToStorage(id, value, bereich, indikator) {
 	var questions = JSON.parse(localStorage.getItem('questions')) || [];
-	// ID Filter
+	
+	// check if question with same id already exists
 	var filterId = questions.findIndex(x => x.id == id);
 	if(filterId != -1){
-		questions.splice(filterId, 1);
-		//console.log('element with ID' + filterId + ' deleted');
-		questions = questions.filter(x => x.id-1 < filterId);
-		console.log(questions);
-		//questions[filterId].value = value;
+		// question id already exists
+		questions.splice(filterId, 1); // delete old element
+		questions = questions.filter(x => x.id-1 < filterId); // delete all elements with higher index
 	}
 	questions.push({'id':id, 'value': value, 'bereich': bereich, 'indikator': indikator});
-	sessionStorage.setItem('lastIndex', questions.indexOf(id));	// save index of the last question
-	console.log('added');
 	localStorage.setItem('questions', JSON.stringify(questions));
 }
 
