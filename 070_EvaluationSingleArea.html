@@ -74,7 +74,6 @@
 					labels: newTest.map(x => x.date).concat(localStorage.getItem('date')),
 					datasets: [{
 						data: newTest.map(x => (JSON.parse(x.averageAreaValues))[bereich]).concat(arithmeticValue[bereich]),
-						//averageValueBereich(bereich, x.questions)).concat(averageValueBereich(bereich))
 						fill: false,
 						borderColor: 'rgb(255, 165, 0)',
 						backgroundColor: 'rgb(255, 165, 0)',

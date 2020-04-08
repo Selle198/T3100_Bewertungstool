@@ -501,8 +501,6 @@ function averageValueIndikator(bereich, indikator, questions=null){
 	var questionsBereich = questionsFiltered.filter(x => x.bereich === bereich); // nach Bereich filtern
 	var questionsIndikator = questionsBereich.filter(x => x.indikator === indikator); // nach Indikator filtern
 	var sum = questionsIndikator.reduce((accumulator, currentValue) => accumulator + parseInt(currentValue.value), 0); // je Indikator Werte aufsummieren
-	console.log(questionsBereich);
-	console.log(questionsIndikator.length);
 	return Math.round(20 *(sum / questionsIndikator.length));
 }
 
