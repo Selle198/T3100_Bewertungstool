@@ -406,12 +406,13 @@ function addQuestionToStorage(id, value, bereich, indikator) {
 	// ID Filter
 	var filterId = questions.findIndex(x => x.id == id);
 	if(filterId != -1){
-		questions[filterId].value = value;
-	} else {
-		questions.push({'id':id, 'value': value, 'bereich': bereich, 'indikator': indikator});
-		sessionStorage.setItem('lastIndex', questions.indexOf(id));	// save index of the last question
-		console.log('added');
+		questions.splice(filterId, 1);
+		console.log('element with ID' + filterId + 'deleted');
+		//questions[filterId].value = value;
 	}
+	questions.push({'id':id, 'value': value, 'bereich': bereich, 'indikator': indikator});
+	sessionStorage.setItem('lastIndex', questions.indexOf(id));	// save index of the last question
+	console.log('added');
 	localStorage.setItem('questions', JSON.stringify(questions));
 }
 
