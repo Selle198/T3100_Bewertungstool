@@ -52,6 +52,7 @@
 	<script>
 		var ctx = document.getElementById('myBarChart');
 		var bereiche = ['Ökologie','Ökonomie','Soziales','Governance'];
+		var averageAreaValue = JSON.parse(localStorage.getItem('weightingIndikator'));
 		var color = Chart.helpers.color;
 		
 		// Bar Chart
@@ -63,7 +64,7 @@
 					label: localStorage.getItem('date'),
 					barPercentage: 1.0,
 					categoryPercentage: 0.5,
-					data: bereiche.map(x => averageValueBereich(x)),
+					data: bereiche.map(x => averageAreaValue[x]),
 					backgroundColor: 'rgba(255, 165, 0)',
 				}]
 			},
@@ -101,7 +102,7 @@
 					labels: newTest.map(x => x.date).concat(localStorage.getItem('date')),
 					datasets: 
 					[{
-						data: newTest.map(x => averageValueBereich('Ökologie', x.questions)).concat(averageValueBereich('Ökologie')),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
+						data: newTest.map(x => (JSON.parse(x.averageAreaValues))[bereich]).concat(averageAreaValue['Ökologie'])),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
 						fill: false,
 						label: 'Ökologie',
 						borderColor: 'rgb(46, 139, 87)',
@@ -109,7 +110,7 @@
 						lineTension: 0
 					},
 					{
-						data: newTest.map(x => averageValueBereich('Ökonomie', x.questions)).concat(averageValueBereich('Ökonomie')),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
+						data: newTest.map(x => (JSON.parse(x.averageAreaValues))['Ökonomie']).concat(averageAreaValue['Ökonomie'])),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
 						fill: false,
 						label: 'Ökonomie',
 						borderColor: 'rgb(255, 165, 0)',
@@ -117,7 +118,7 @@
 						lineTension: 0
 					},
 					{
-						data: newTest.map(x => averageValueBereich('Soziales', x.questions)).concat(averageValueBereich('Soziales')),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
+						data: newTest.map(x => (JSON.parse(x.averageAreaValues))['Soziales']).concat(averageAreaValue['Soziales'])),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
 						fill: false,
 						label: 'Soziales',
 						borderColor: 'rgb(255, 215, 0)',
@@ -125,7 +126,7 @@
 						lineTension: 0
 					},
 					{
-						data: newTest.map(x => averageValueBereich('Governance', x.questions)).concat(averageValueBereich('Governance')),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
+						data: newTest.map(x => (JSON.parse(x.averageAreaValues))['Governance']).concat(averageAreaValue['Governance'])),            //[averageValueBereich(bereich), averageValueBereich('Soziales')],
 						fill: false,
 						label: 'Governance',
 						borderColor: 'rgb(100, 149, 237)',
