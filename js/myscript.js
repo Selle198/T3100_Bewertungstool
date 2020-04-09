@@ -416,10 +416,8 @@ function reverseClick() {
 		// check if very first question is reached
 		if( result ) {
 			// still questions available
-			console.log(result.frage + ' ' + result.value);
 			if ( result.value === 'f' ) {
 				counterIdk--;
-				console.log('counter verringert ' + counterIdk);
 			}			
 			var weiterButton = document.getElementById('weiterButton');
 			weiterButton.parentNode.innerHTML += ''; // remove Event Listener
