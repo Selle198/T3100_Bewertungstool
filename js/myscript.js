@@ -416,6 +416,9 @@ function reverseClick() {
 		// check if very first question is reached
 		if( result ) {
 			// still questions available
+			if ( result.value === 'f' ) {
+				counterIdk--;
+			}			
 			var weiterButton = document.getElementById('weiterButton');
 			weiterButton.parentNode.innerHTML += ''; // remove Event Listener
 			console.log(result.indikator);
