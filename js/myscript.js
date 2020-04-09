@@ -540,6 +540,7 @@ function getWeighting(bereich) {
 
 // export latest Data to File
 function exportData() {
+	areas = ['Ökologie', 'Ökonomie', 'Soziales', 'Governance'];
 	var dataArray = [];
 	var textTestart;
 	areas.forEach(x=> dataArray.push(getWeighting(x)));
