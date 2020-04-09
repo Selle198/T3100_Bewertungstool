@@ -418,8 +418,8 @@ function reverseClick() {
 			// still questions available
 			console.log(result.frage + ' ' + result.value);
 			if ( result.value === 'f' ) {
-				idkMaxCounter--;
-				console.log('counter verringert ' + idkMaxCounter);
+				counterIdk--;
+				console.log('counter verringert ' + counterIdk);
 			}			
 			var weiterButton = document.getElementById('weiterButton');
 			weiterButton.parentNode.innerHTML += ''; // remove Event Listener
