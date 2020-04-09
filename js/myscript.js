@@ -416,6 +416,11 @@ function reverseClick() {
 		// check if very first question is reached
 		if( result ) {
 			// still questions available
+			console.log(result.frage + ' ' + result.value);
+			if ( result.value === 'f' ) {
+				idkMaxCounter--;
+				console.log('counter verringert ' + idkMaxCounter);
+			}			
 			var weiterButton = document.getElementById('weiterButton');
 			weiterButton.parentNode.innerHTML += ''; // remove Event Listener
 			console.log(result.indikator);
