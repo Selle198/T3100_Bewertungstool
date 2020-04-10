@@ -476,7 +476,7 @@ function arithmeticMean(question=null) {
 			localStorage.setItem('weightingIndikator', JSON.stringify(result));
 		}
 	};
-	xmlhttp.open("GET", url, true);
+	xmlhttp.open("GET", url, false);
 	xmlhttp.send();	
 } 
 
