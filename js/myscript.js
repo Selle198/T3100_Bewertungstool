@@ -450,9 +450,10 @@ function arithmeticMean(question=null) {
 		url ="database/indicatorWeighting_detailedTest.json";
 	}
 	console.log(url);
-	
 	// Verbindung zum Server (Mongoose 6.7) aufbauen
 	xmlhttp.onreadystatechange = function(){
+		console.log(this.readyState);
+		console.log(this.status);
 		if(this.readyState == 4 && this.status == 200) {
 			jsonIndicatorArray = JSON.parse(this.responseText); // in JS Objekte umwandeln
 			var result = {};
@@ -474,7 +475,7 @@ function arithmeticMean(question=null) {
 			localStorage.setItem('weightingIndikator', JSON.stringify(result));
 		}
 	};
-	xmlhttp.open("GET", url, true);
+	xmlhttp.open("GET", url, false);
 	xmlhttp.send();	
 } 
 
