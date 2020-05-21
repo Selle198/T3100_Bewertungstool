@@ -58,7 +58,7 @@
 		}
 		var bereich = localStorage.getItem('AreaForResults'); // choosen area
 		var indikatoren = getIndikatorenFromBereich(bereich);
-		var arithmeticValue = JSON.parse(localStorage.getItem('weightingIndikator')); // returns the average value for each area
+		var arithmeticValue = JSON.parse(localStorage.getItem('averageAreaValue')); // returns the average value for each area
 		var color = Chart.helpers.color;
 		
 		// Line Chart
