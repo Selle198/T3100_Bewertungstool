@@ -1,95 +1,117 @@
 [
 {
-	"indikator": "Erneuerbare Energien",	"gewichtung":12,
+	"indikator": "Erneuerbare Energien",
+	"gewichtung":12,
 	"bereich":"Ökologie"
 },
 {
-	"indikator": "Zertifizierung und Managementsysteme",	"gewichtung":10,
-	"gewichtungSchnelltest": "5",
+	"indikator": "Zertifizierung und Managementsysteme",
+	"gewichtung":10,
 	"bereich":"Ökologie"
 },
 {
-	"indikator": "Vorhandensein/Umsetzung von Konzepten der Nachhaltigkeitsverbesserung",	"gewichtung":10,
+	"indikator": "Vorhandensein/Umsetzung von Konzepten der Nachhaltigkeitsverbesserung",
+	"gewichtung":10,
 	"bereich":"Ökologie"
 },
 {
-	"indikator": "Anteil (Vor-)Lieferanten mit zertifiziertem Umweltmanagement",	"gewichtung":9,
+	"indikator": "Anteil (Vor-)Lieferanten mit zertifiziertem Umweltmanagement",
+	"gewichtung":9,
 	"bereich":"Ökologie"
 },
 {
-	"indikator": "Effizienz der Eingesetzten Materialmenge",	"gewichtung":9,
+	"indikator": "Effizienz der Eingesetzten Materialmenge",
+	"gewichtung":9,
 	"bereich":"Ökologie"
 },
 {
-	"indikator": "Umweltorientiertes Logistikkonzept für die Beschaffung",	"gewichtung":8,
+	"indikator": "Umweltorientiertes Logistikkonzept für die Beschaffung",
+	"gewichtung":8,
 	"bereich":"Ökologie"
 },
 {
-	"indikator": "Umweltorientiertes Logistikkonzepte zum Absatz",	"gewichtung":8,
+	"indikator": "Umweltorientiertes Logistikkonzepte zum Absatz",
+	"gewichtung":8,
 	"bereich":"Ökologie"
 },
 {
-	"indikator": "Wasserbedarf und -qualität",	"gewichtung":8,
+	"indikator": "Wasserbedarf und -qualität",
+	"gewichtung":8,
 	"bereich":"Ökologie"
 },
 {
-	"indikator": "Mitarbeiterbezogene Logistikmaßnahmen (Job-Ticket etc.)",	"gewichtung":8,
+	"indikator": "Mitarbeiterbezogene Logistikmaßnahmen (Job-Ticket etc.)",
+	"gewichtung":8,
 	"bereich":"Ökologie"
 },
 {
-	"indikator": "Energieverbrauch",	"gewichtung":6,
+	"indikator": "Energieverbrauch",
+	"gewichtung":6,
 	"bereich":"Ökologie"
 },
 {
-	"indikator": "Energieeffizienz",	"gewichtung":6,
+	"indikator": "Energieeffizienz",
+	"gewichtung":6,
 	"bereich":"Ökologie"
 },
 {
-	"indikator": "Abfalltrennung und Recycling",	"gewichtung":6,
+	"indikator": "Abfalltrennung und Recycling",
+	"gewichtung":6,
 	"bereich":"Ökologie"
 },
 {
-	"indikator": "Beschäftigungsentwicklung",	"gewichtung":10,
+	"indikator": "Beschäftigungsentwicklung",
+	"gewichtung":10,
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Miteinbezug Nachhaltigkeit in Managemententscheidungen",	"gewichtung":10,
+	"indikator": "Miteinbezug Nachhaltigkeit in Managemententscheidungen",
+	"gewichtung":10,
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Arbeitsproduktivität",	"gewichtung":8,
+	"indikator": "Arbeitsproduktivität",
+	"gewichtung":8,
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Anteil der Importe von Materialien",	"gewichtung":8,
+	"indikator": "Anteil der Importe von Materialien",
+	"gewichtung":8,
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Kommunikation Nachhaltigkeit interne/externe Stakeholder",	"gewichtung":8,
+	"indikator": "Kommunikation Nachhaltigkeit interne/externe Stakeholder",
+	"gewichtung":8,
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Anteil lokaler Zulieferer",	"gewichtung":8,
+	"indikator": "Anteil lokaler Zulieferer",
+	"gewichtung":8,
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Sicherheit Software/Hardware",	"gewichtung":7,
+	"indikator": "Sicherheit Software/Hardware",
+	"gewichtung":7,
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Beziehung zu den Lieferanten/Abhängigkeit",	"gewichtung":7,
+	"indikator": "Beziehung zu den Lieferanten/Abhängigkeit",
+	"gewichtung":7,
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Wissensmanagement im Unternehmen",	"gewichtung":6,
+	"indikator": "Wissensmanagement im Unternehmen",
+	"gewichtung":6,
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Anteil ins Ausland verlagerte Wertschöpfung",	"gewichtung":6,
+	"indikator": "Anteil ins Ausland verlagerte Wertschöpfung",
+	"gewichtung":6,
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Anteil Forschung und Entwicklung",	"gewichtung":6,
+	"indikator": "Anteil Forschung und Entwicklung",
+	"gewichtung":6,
 	"bereich":"Ökonomie"
 },
 {
@@ -98,51 +120,63 @@
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Vorhandensein konkreter Maßnahmen Wettbewerbsposition",	"gewichtung":6,
+	"indikator": "Vorhandensein konkreter Maßnahmen Wettbewerbsposition",
+	"gewichtung":6,
 	"bereich":"Ökonomie"
 },
 {
-	"indikator": "Arbeitssicherheit",	"gewichtung":10,
+	"indikator": "Arbeitssicherheit",
+	"gewichtung":10,
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Vorhandensein/Zugänglichkeit Schulungsplan Mitarbeiter",	"gewichtung":10,
+	"indikator": "Vorhandensein/Zugänglichkeit Schulungsplan Mitarbeiter",
+	"gewichtung":10,
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Weiterbildungsförderung der Mitarbeiter",	"gewichtung":8,
+	"indikator": "Weiterbildungsförderung der Mitarbeiter",
+	"gewichtung":8,
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Arbeitsbedingungen bei Verlagerung ins Ausland",	"gewichtung":8,
+	"indikator": "Arbeitsbedingungen bei Verlagerung ins Ausland",
+	"gewichtung":8,
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Gleichstellung der Frau durch bspw. Verdienstabstand",	"gewichtung":8,
+	"indikator": "Gleichstellung der Frau durch bspw. Verdienstabstand",
+	"gewichtung":8,
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Anzahl Verbesserungsvorschläge / Umgang mit diesen",	"gewichtung":8,
+	"indikator": "Anzahl Verbesserungsvorschläge / Umgang mit diesen",
+	"gewichtung":8,
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Förderung und Umgang mit Behinderten",	"gewichtung":8,
+	"indikator": "Förderung und Umgang mit Behinderten",
+	"gewichtung":8,
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Sozialstandards bei Lieferanten und Vorlieferanten",	"gewichtung":6,
+	"indikator": "Sozialstandards bei Lieferanten und Vorlieferanten",
+	"gewichtung":6,
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Gesundheitsförderung der Mitarbeiter",	"gewichtung":6,
+	"indikator": "Gesundheitsförderung der Mitarbeiter",
+	"gewichtung":6,
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Einsatz von Zeitarbeitern und Überwachung Standards",	"gewichtung":6,
+	"indikator": "Einsatz von Zeitarbeitern und Überwachung Standards",
+	"gewichtung":6,
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Flexible und familienfreundliche Arbeitszeitmodelle",	"gewichtung":6,
+	"indikator": "Flexible und familienfreundliche Arbeitszeitmodelle",
+	"gewichtung":6,
 	"bereich":"Soziales"
 },
 {
@@ -151,35 +185,43 @@
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Förderung und Umgang mit älteren Mitarbeitern",	"gewichtung":6,
+	"indikator": "Förderung und Umgang mit älteren Mitarbeitern",
+	"gewichtung":6,
 	"bereich":"Soziales"
 },
 {
-	"indikator": "Vorhandensein Risikomanagement",	"gewichtung":18,
+	"indikator": "Vorhandensein Risikomanagement",
+	"gewichtung":18,
 	"bereich":"Governance"
 },
 {
-	"indikator": "Vorhandensein strategischer Planung",	"gewichtung":16,
+	"indikator": "Vorhandensein strategischer Planung",
+	"gewichtung":16,
 	"bereich":"Governance"
 },
 {
-	"indikator": "Vorhandensein kontinuierliches Verbesserungsmanagement",	"gewichtung":14,
+	"indikator": "Vorhandensein kontinuierliches Verbesserungsmanagement",
+	"gewichtung":14,
 	"bereich":"Governance"
 },
 {
-	"indikator": "Vorhandensein interner Verhaltenskodex zu ethischen Grundsätzen",	"gewichtung":13,
+	"indikator": "Vorhandensein interner Verhaltenskodex zu ethischen Grundsätzen",
+	"gewichtung":13,
 	"bereich":"Governance"
 },
 {
-	"indikator": "Wahrnehmen der gesellschaftlichen Verantwortung",	"gewichtung":13,
+	"indikator": "Wahrnehmen der gesellschaftlichen Verantwortung",
+	"gewichtung":13,
 	"bereich":"Governance"
 },
 {
-	"indikator": "Zertifizierung und Managementsysteme",	"gewichtung":13,
+	"indikator": "Zertifizierung und Managementsysteme",
+	"gewichtung":13,
 	"bereich":"Governance"
 },
 {
-	"indikator": "Vorhandensein von Kooperationen im Kontext Nachhaltigkeit",	"gewichtung":13,
+	"indikator": "Vorhandensein von Kooperationen im Kontext Nachhaltigkeit",
+	"gewichtung":13,
 	"bereich":"Governance"
 }
 ]
