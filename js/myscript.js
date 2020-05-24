@@ -287,26 +287,29 @@ function frageHandler(singleAreaArray, bereich, indikator, nextBereich) {
 						loadQuestion(nextBereich, frage.indikator);
 					} else {
 						// Es sind keine Bereiche mehr verfügbar
-						var date = new Date();
-						var weightingArray = {};
-						// set date
-						localStorage.setItem('date', ((date.getMonth()+1) + "-" + date.getDate() + "-" + date.getFullYear()));
-												
-						// set reference values for next evaluation
-						localStorage.setItem('stateTestReference', localStorage.getItem('stateTest'));						
-						var reformattedArray = areas.map(bereich => {
-							console.log(bereich);
-							console.log(getWeighting(bereich));
-							return getWeighting(bereich)*100;
-						});
-						localStorage.setItem('weightingReference', JSON.stringify(reformattedArray));
-						
-						// calculate average values
-						arithmeticMean();
-						
-						// go to next page
-						var anker = document.getElementById("anker");
-						anker.href = "060_EvaluationOverview.html";
+						if (confirm('Geschafft!\nMöchten Sie die Bewertung abschießen?')) {
+							var date = new Date();
+							var weightingArray = {};
+							// set date
+							localStorage.setItem('date', ((date.getMonth()+1) + "-" + date.getDate() + "-" + date.getFullYear()));
+													
+							// set reference values for next evaluation
+							localStorage.setItem('stateTestReference', localStorage.getItem('stateTest'));
+							
+							var reformattedArray = areas.map(bereich => {
+								console.log(bereich);
+								console.log(getWeighting(bereich));
+								return getWeighting(bereich)*100;
+							});
+							localStorage.setItem('weightingReference', JSON.stringify(reformattedArray));
+							
+							// calculate average values
+							arithmeticMean();
+							
+							// go to next page
+							var anker = document.getElementById("anker");
+							anker.href = "060_EvaluationOverview.html";
+						}
 					}
 				}				
 			} else {
