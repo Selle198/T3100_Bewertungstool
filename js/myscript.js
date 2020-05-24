@@ -429,7 +429,7 @@ function reverseClick() {
 	}
 }
 
-// Get the weighting for each area
+// Get the average value for each area
 function arithmeticMean(question=null) {
 	var jsonIndicatorArray;
 	var xmlhttp = new XMLHttpRequest();
